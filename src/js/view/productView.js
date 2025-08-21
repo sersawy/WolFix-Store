@@ -1,4 +1,5 @@
 const productsContainer = document.getElementById('productsContainer');
+const sliderContainer = document.querySelector('.sliderItems');
 const productsCount = document.getElementById('productsCount');
 
 export function detail(product) {
@@ -39,4 +40,14 @@ export function render(products, total) {
     productsContainer.insertAdjacentHTML('afterbegin', template);
   });
   productsCount.innerHTML = `<div class="text-muted small mb-2">${total} result${total !== 1 ? 's' : ''}</div>`;
+}
+
+export function renderMainSlider(products) {
+  sliderContainer.innerHTML = '';
+  products.forEach((product) => {
+    const template = `<div class="slide">
+            <a href="product.html?id=${product.id}"><img src="${product.sliderImage}" alt="${product.name}" /></a>
+          </div>`;
+    sliderContainer.insertAdjacentHTML('afterbegin', template);
+  });
 }

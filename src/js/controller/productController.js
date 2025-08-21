@@ -15,6 +15,7 @@ export function init() {
   filterController.init();
   cartController.init();
   handelAllListener();
+  handelMainSlider();
 }
 
 export function handelAllListener() {
@@ -60,4 +61,64 @@ function handelAddToCart(e) {
   if (!btn) return;
   const productId = +btn.dataset.id;
   cartController.addToCart(productModel.getProduct(productId));
+}
+
+function handelMainSlider() {
+  const products = productModel.getAllProductsSlider();
+  productView.renderMainSlider(products);
+
+  const sliderContainer = document.querySelector('.sliderItems');
+  const slides = document.querySelectorAll('.slide');
+  const maxSlides = slides.length - 1;
+  const dotContainer = document.querySelector('.dots');
+  const createDots = () =>
+    slides.forEach((_, i) =>
+      dotContainer.insertAdjacentHTML('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
+    );
+  createDots();
+  const dots = document.querySelectorAll('.dots__dot');
+  const goToSlide = (slide) => {
+    dots.forEach((dot) => dot.classList.remove('dots__dot--active'));
+    document.querySelector(`.dots__dot[data-slide='${slide}']`).classList.add('dots__dot--active');
+    slides.forEach((s, i) => {
+      s.style.transform = `translateX(${100 * (i - slide)}%)`;
+    });
+  };
+  goToSlide(0);
+
+  let currentSlide = 0;
+  const previousSlide = () => {
+    if (currentSlide === 0) currentSlide = maxSlides;
+    else currentSlide--;
+    goToSlide(currentSlide);
+  };
+  const nextSlide = () => {
+    if (currentSlide === maxSlides) currentSlide = 0;
+    else currentSlide++;
+    goToSlide(currentSlide);
+  };
+
+  const btnKeySlideHandelrForListhener = function (e) {
+    if (e.key === 'ArrowRight') {
+      nextSlide();
+    } else if (e.key === 'ArrowLeft') {
+      previousSlide();
+    }
+  };
+
+  const btnKeySlideHandelr = function (entries, observe) {
+    if (entries[0].isIntersecting) {
+      document.addEventListener('keydown', btnKeySlideHandelrForListhener);
+    } else document.removeEventListener('keydown', btnKeySlideHandelrForListhener);
+  };
+  const btnKeySlideObserver = new IntersectionObserver(btnKeySlideHandelr, {
+    root: null,
+    threshold: 0,
+  });
+  btnKeySlideObserver.observe(sliderContainer);
+  dotContainer.addEventListener('click', (dot) => {
+    if (dot.target.classList.contains('dots__dot')) {
+      goToSlide(Number(dot.target.dataset.slide));
+    }
+  });
 }

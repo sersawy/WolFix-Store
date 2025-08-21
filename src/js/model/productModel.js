@@ -19,6 +19,9 @@ const state = {
 export function getAllProducts() {
   return products;
 }
+export function getAllProductsSlider() {
+  return products.filter((p) => p.sliderImage);
+}
 export function getProduct(id) {
   return products.find((p) => p.id === +id);
 }
