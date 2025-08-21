@@ -2,7 +2,9 @@ import * as authController from './controller/authController.js';
 import * as productController from './controller/productController.js';
 import * as cartController from './controller/cartController.js';
 import * as orderController from './controller/orderController.js';
+import { handelScrollUp } from './utils/helpers.js';
 document.getElementById('year').textContent = new Date().getFullYear();
+handelScrollUp();
 const checkLogin = authController.checkLogin();
 if (location.pathname.includes('login.html')) {
   if (!checkLogin) authController.login();

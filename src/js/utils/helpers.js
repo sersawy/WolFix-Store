@@ -5,3 +5,17 @@ export function sendNotification(message) {
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), 1500);
 }
+export function handelScrollUp() {
+  const btn = document.getElementById('btn-back-to-top');
+
+  window.addEventListener('scroll', function () {
+    if (scrollY > 50) {
+      btn.style.display = 'block';
+    } else {
+      btn.style.display = 'none';
+    }
+  });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
