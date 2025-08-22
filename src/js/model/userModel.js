@@ -109,3 +109,12 @@ export function addOrderToCurrentUser(items, total) {
   localStorage.setItem('users', JSON.stringify(users));
   return users;
 }
+export function removeCurrentCart() {
+  const currentUser = getCurrentUser();
+  currentUser.cart = [];
+  setCurrentUser(currentUser);
+  const users = getAllUsers();
+  const user = users.find((u) => u.email === currentUser.email);
+  user.cart = [];
+  localStorage.setItem('users', JSON.stringify(users));
+}

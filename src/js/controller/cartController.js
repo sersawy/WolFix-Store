@@ -19,16 +19,26 @@ export function addToCart(product) {
 }
 
 function handelChangeQuantity(e) {
-  if (!e.target.classList.contains('qty-input')) return;
-  const id = e.target.dataset.id;
-  cartModel.updateQty(id, +e.target.value);
+  if (e.target.classList.contains('quantity-btn')) {
+    const id = e.target.dataset.id;
+    const value = e.target.dataset.quantity;
+    changeQuantity(id, +value);
+  } else if (e.target.classList.contains('quantity-input')) {
+    const id = e.target.dataset.id;
+    changeQuantity(id, +e.target.value);
+  }
+}
+function changeQuantity(id, value) {
+  cartModel.updateQty(id, +value);
   const currentUser = userModel.getCurrentUser();
   if (currentUser) userModel.addCartToCurrentUser(cartModel.get());
   cartView.render(cartModel.get(), cartModel.total());
 }
 function handelRemoveProduct(e) {
-  if (!e.target.classList.contains('btn-remove-product')) return;
-  const id = e.target.dataset.id;
+  const btn = e.target.closest('.cart-item-remove');
+  if (!btn) return;
+  const id = btn.dataset.id;
+
   cartModel.remove(id);
   const currentUser = userModel.getCurrentUser();
   if (currentUser) userModel.addCartToCurrentUser(cartModel.get());
@@ -36,15 +46,19 @@ function handelRemoveProduct(e) {
 }
 function handelCheckout() {
   const order = cartModel.get();
-
+  const currentUser = userModel.getCurrentUser();
+  if (!currentUser) location.href = './login.html';
   userModel.addOrderToCurrentUser(order, cartModel.total());
-  sendNotification('order is created!');
+  sendNotification('Order placed successfully!', 'success');
+  cartModel.removeCurrentCart();
+  userModel.removeCurrentCart();
 }
 
 export function handelPage() {
   init();
   cartView.render(cartModel.get(), cartModel.total());
   document.getElementById('cartContainer').addEventListener('change', handelChangeQuantity);
+  document.getElementById('cartContainer').addEventListener('click', handelChangeQuantity);
   document.getElementById('cartContainer').addEventListener('click', handelRemoveProduct);
-  document.getElementById('checkoutBtn').addEventListener('click', handelCheckout);
+  document.getElementById('checkoutBtn')?.addEventListener('click', handelCheckout);
 }
