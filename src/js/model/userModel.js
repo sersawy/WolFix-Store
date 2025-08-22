@@ -7,13 +7,13 @@ const validation = function (user) {
   if (!user.name) {
     throw new AppError('registration', 'name', 'Name is Required');
   } else if (!nameRegex.test(user.name.trim())) {
-    throw new AppError('registration', 'name', 'Name Length Must be greater than 3 (letters only)');
+    throw new AppError('registration', 'name', 'Invalid Name.');
   }
 
   if (!user.email) {
     throw new AppError('registration', 'email', 'Email is Required');
   } else if (!emailRegex.test(user.email.trim())) {
-    throw new AppError('registration', 'email', 'Email is not valid');
+    throw new AppError('registration', 'email', 'Invalid email address.');
   } else if (users.some((val) => val.email === user.email)) {
     throw new AppError('registration', 'email', 'Email already registered');
   }
