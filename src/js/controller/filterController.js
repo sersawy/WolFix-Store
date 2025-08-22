@@ -23,6 +23,8 @@ export function getFilterData() {
     availability: fd.get('availability'),
   };
   filter.sort = document.getElementById('sortBy').value;
+  console.log(filter);
+
   return filter;
 }
 export function filterProducts(products, state) {
