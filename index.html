@@ -65,14 +65,12 @@
 
           <!-- Mobile Toggle -->
           <button
-            class="navbar-toggler custom-toggler"
+            class="navbar-toggler custom-toggler text-center"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#mainNav"
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <i class="bi bi-list"></i>
           </button>
 
           <!-- Navigation -->
@@ -122,10 +120,10 @@
 
             <!-- User Actions -->
             <div class="user-actions d-flex align-items-center gap-2">
-              <button class="action-btn wishlist-btn" title="Wishlist">
+              <!-- <button class="action-btn wishlist-btn" title="Wishlist">
                 <i class="bi bi-heart"></i>
                 <span class="badge">0</span>
-              </button>
+              </button> -->
               <a href="cart.html" class="action-btn cart-btn" title="Shopping Cart">
                 <i class="bi bi-bag"></i>
                 <span id="cartCountBadge" class="badge">0</span>
@@ -160,7 +158,6 @@
                 Clear All
               </button>
             </div>
-            <div id="appliedFilters" class="applied-filters"></div>
             <form id="filterForm" class="filter-form">
               <div class="filter-section">
                 <h4>Price Range</h4>
@@ -331,14 +328,6 @@
               <div id="productsCount" class="products-count"></div>
             </div>
             <div class="products-controls">
-              <div class="view-toggle">
-                <button class="view-btn active" data-view="grid" title="Grid View">
-                  <i class="bi bi-grid-3x3-gap"></i>
-                </button>
-                <button class="view-btn" data-view="list" title="List View">
-                  <i class="bi bi-list"></i>
-                </button>
-              </div>
               <div class="sort-container">
                 <select id="sortBy" class="sort-select">
                   <option value="relevance">Sort by Relevance</option>
@@ -349,17 +338,31 @@
                   <option value="name_desc">Name: Z to A</option>
                 </select>
               </div>
-              <button class="filter-toggle-mobile" data-bs-toggle="offcanvas" data-bs-target="#mobileFilters">
-                <i class="bi bi-funnel"></i>
-                Filters
-              </button>
             </div>
+            <button
+              class="filter-toggle-mobile btn btn-primary"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mobileFilters"
+              aria-controls="mobileFilters"
+            >
+              <i class="bi bi-funnel"></i> Filters
+            </button>
           </div>
           <div id="productsContainer" class="row g-4"></div>
           <nav class="pagination-container"></nav>
         </section>
       </div>
     </main>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileFilters">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title"><i class="bi bi-funnel"></i> Filters</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <!-- mobile filter form will be injected here -->
+        <div id="mobileFilterContent"></div>
+      </div>
+    </div>
     <footer class="footer-modern">
       <div class="container">
         <div class="footer-content">

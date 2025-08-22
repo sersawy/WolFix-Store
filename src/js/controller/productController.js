@@ -16,6 +16,7 @@ export function init() {
   cartController.init();
   handelAllListener();
   handelMainSlider();
+  handelMobileFilter();
 }
 
 export function handelAllListener() {
@@ -47,10 +48,9 @@ function handelClearFilter() {
 }
 
 function handelClickPagination(e) {
-  handelShowLoading();
-
   const btn = e.target.closest('.page-item');
   if (!btn) return;
+  handelShowLoading();
   const nextPage = +btn.dataset.numPage;
   const products = paginationController.getProductByPage(productModel.getFilterProducts(), nextPage);
   productView.render(products, productModel.getFilterProducts().length);
@@ -72,8 +72,6 @@ function handelSearch() {
 }
 
 function handelAddToCart(e) {
-  console.log(e.target);
-
   const btn = e.target.closest('.add-to-cart');
   if (!btn) return;
   const productId = +btn.dataset.id;
@@ -144,4 +142,25 @@ function handelMainSlider() {
 function handelShowLoading() {
   productView.showLoading();
   setTimeout(productView.hideLoading, 500);
+}
+
+function handelMobileFilter() {
+  const desktopFiltersWrapper = document.querySelector('.filter-sidebar');
+  const mobileFiltersWrapper = document.querySelector('#mobileFilterContent');
+  const filterForm = document.querySelector('#filterForm');
+
+  function moveFilters() {
+    if (window.innerWidth < 992) {
+      if (!mobileFiltersWrapper.contains(filterForm)) {
+        mobileFiltersWrapper.appendChild(filterForm);
+      }
+    } else {
+      if (!desktopFiltersWrapper.contains(filterForm)) {
+        desktopFiltersWrapper.appendChild(filterForm);
+      }
+    }
+  }
+
+  moveFilters();
+  window.addEventListener('resize', moveFilters);
 }

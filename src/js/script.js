@@ -21,3 +21,5 @@ if (location.pathname.includes('cart.html')) {
 if (location.pathname.includes('orders.html')) {
   orderController.init();
 }
+
+document.addEventListener('DOMContentLoaded', () => {});
