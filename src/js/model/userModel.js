@@ -1,8 +1,7 @@
 import { AppError } from '../utils/appError.js';
 const validation = function (user) {
-  // Name
-  const nameRegex = new RegExp('^[A-Za-z]{3,}$');
-  const emailRegex = new RegExp('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
+  const nameRegex = new RegExp("^[A-Za-z]{2,}(?:[\\s'][A-Za-z]{1,}(?:-[A-Za-z]{1,})*)+$");
+  const emailRegex = new RegExp('^[a-zA-Z0-9._+-]+@(?:[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*\\.)+[a-zA-Z]{2,}$');
   const users = getAllUsers();
 
   if (!user.name) {
@@ -13,20 +12,28 @@ const validation = function (user) {
 
   if (!user.email) {
     throw new AppError('registration', 'email', 'Email is Required');
-  } else if (!emailRegex.test(user.email)) {
+  } else if (!emailRegex.test(user.email.trim())) {
     throw new AppError('registration', 'email', 'Email is not valid');
   } else if (users.some((val) => val.email === user.email)) {
     throw new AppError('registration', 'email', 'Email already registered');
   }
 
   if (!user.password) {
-    throw new AppError('registration', 'password', 'password is Required');
+    throw new AppError('registration', 'password', 'Password is required');
   } else if (!user.confirmPassword) {
-    throw new AppError('registration', 'confirmPassword', 'Confirm Password is Required');
+    throw new AppError('registration', 'confirmPassword', 'Confirm Password is required');
   } else if (user.confirmPassword !== user.password) {
-    throw new AppError('registration', 'confirmPassword', 'Password and Confirm Password do not match!');
+    throw new AppError('registration', 'confirmPassword', 'Password and Confirm Password do not match');
   } else if (user.password.length < 8) {
-    throw new AppError('registration', 'Password', 'Password must be 8 chars at least');
+    throw new AppError('registration', 'password', 'Password must be at least 8 characters long');
+  } else if (!/[A-Z]/.test(user.password)) {
+    throw new AppError('registration', 'password', 'Password must contain at least one uppercase letter');
+  } else if (!/[a-z]/.test(user.password)) {
+    throw new AppError('registration', 'password', 'Password must contain at least one lowercase letter');
+  } else if (!/[0-9]/.test(user.password)) {
+    throw new AppError('registration', 'password', 'Password must contain at least one number');
+  } else if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(user.password)) {
+    throw new AppError('registration', 'password', 'Password must contain at least one special character');
   }
   return true;
 };
