@@ -9,7 +9,7 @@ export function init() {
   const bounds = productModel.priceBounds();
   filterView.render({ categories, brands, bounds, state });
   productModel.setFilter(getFilterData());
-  addListenerPriceFilter(bounds);
+  addListenerFilter(bounds);
 }
 
 export function getFilterData() {
@@ -58,7 +58,7 @@ export function filterProducts(products, state) {
 
   return pro;
 }
-function addListenerPriceFilter(bounds) {
+function addListenerFilter(bounds) {
   const minSlider = document.getElementById('minPriceSlider');
   const maxSlider = document.getElementById('maxPriceSlider');
   const minInput = document.getElementById('minPrice');
@@ -82,5 +82,19 @@ function addListenerPriceFilter(bounds) {
 
   maxInput.addEventListener('change', () => {
     maxSlider.value = maxInput.value;
+  });
+  document.querySelectorAll('.filter-search-input').forEach((input) => {
+    input.addEventListener('input', handleFilterSearch);
+  });
+}
+
+function handleFilterSearch(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  const filterSection = e.target.closest('.filter-section');
+  const filterOptions = filterSection.querySelectorAll('.filter-option');
+
+  filterOptions.forEach((option) => {
+    const text = option.querySelector('.option-text').textContent.toLowerCase();
+    option.style.display = text.includes(searchTerm) ? 'flex' : 'none';
   });
 }
