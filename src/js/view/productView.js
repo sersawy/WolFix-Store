@@ -38,9 +38,7 @@ function generateTemplate(product) {
           <div class="product-price">$${product.price}</div>
           <div class="product-actions">
             <a href="product.html?id=${product.id}" class="btn-outline-secondary">Details</a>
-            <button class="btn-primary add-to-cart" data-id="${product.id}" ${product.stock <= 0 ? 'disabled' : ''}>
-              ${product.stock <= 0 ? 'Out of Stock' : 'Add to Cart'}
-            </button>
+            <button class="btn-primary add-to-cart" data-id="${product.id}">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -53,7 +51,7 @@ export function render(products, total) {
     const template = generateTemplate(product);
     productsContainer.insertAdjacentHTML('beforeend', template);
   });
-  productsCount.innerHTML = `<div class="text-muted small mb-2">${total} result${total !== 1 ? 's' : ''}</div>`;
+  productsCount.textContent = `${total} result${total !== 1 ? 's' : ''}`;
 }
 
 export function renderMainSlider(products) {

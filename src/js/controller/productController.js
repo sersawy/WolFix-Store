@@ -72,7 +72,9 @@ function handelSearch() {
 }
 
 function handelAddToCart(e) {
-  const btn = e.target.closest('.add-to-card');
+  console.log(e.target);
+
+  const btn = e.target.closest('.add-to-cart');
   if (!btn) return;
   const productId = +btn.dataset.id;
   cartController.addToCart(productModel.getProduct(productId));

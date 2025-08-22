@@ -286,6 +286,13 @@
   display: flex;
   align-items: center;
 }
+.search-input-group i {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
 
 .search-input {
   width: 100%;
@@ -931,7 +938,11 @@
 }
 
 .page-item {
+  cursor: pointer;
   display: flex;
+}
+.page-item.disabled {
+  cursor: default;
 }
 
 .page-link {

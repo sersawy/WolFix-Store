@@ -2,7 +2,7 @@ const paginationContainer = document.querySelector('.pagination-container');
 function generateTemplate(numPages, currentPage) {
   return `<ul class="pagination justify-content-center">
                 <li class="page-item  ${currentPage === 1 ? 'disabled' : ''}" data-num-page='${currentPage - 1}'>
-                  <a class="page-link">Previous</a>
+                  <a class="page-link" aria-label="Previous"><i class="bi bi-chevron-left"></i></a>
                 </li>
                 ${
                   currentPage - 1 <= numPages && currentPage - 1 != 0
@@ -21,7 +21,7 @@ function generateTemplate(numPages, currentPage) {
                 }
                 <li class="page-item  ${currentPage + 1 <= numPages ? '' : 'disabled'}" data-num-page='${
     currentPage + 1
-  }'><a class="page-link">Next</a></li>
+  }'><a class="page-link"  aria-label="Next"><i class="bi bi-chevron-right"></i></a></li>
               </ul>
             `;
 }
