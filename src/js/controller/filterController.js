@@ -22,23 +22,31 @@ export function getFilterData() {
     brand: fd.getAll('brand'),
     availability: fd.get('availability'),
   };
-  console.log(filter);
-
+  filter.sort = document.getElementById('sortBy').value;
   return filter;
 }
 export function filterProducts(products, state) {
-  console.log(state);
+  const pro = products
+    .filter((p) => {
+      return (
+        p.price >= state.minPrice &&
+        p.price <= state.maxPrice &&
+        (state.minRating == 0 || p.rating >= state.minRating) &&
+        (state.category.length === 0 || state.category.includes(p.category)) &&
+        (state.brand.length === 0 || state.brand.includes(p.brand)) &&
+        (state.availability == 0 || p[state.availability])
+      );
+    })
+    .sort((a, b) => {
+      if (state.sort === 'price_asc') return a.price - b.price;
+      if (state.sort === 'price_desc') return b.price - a.price;
+      if (state.sort === 'rating_desc') return b.rating - a.rating;
+      if (state.sort === 'name_asc') return a.name.localeCompare(b.name);
+      if (state.sort === 'name_desc') return b.name.localeCompare(a.name);
+      return 0;
+    });
 
-  return products.filter((p) => {
-    return (
-      p.price >= state.minPrice &&
-      p.price <= state.maxPrice &&
-      (state.minRating == 0 || p.rating >= state.minRating) &&
-      (state.category.length === 0 || state.category.includes(p.category)) &&
-      (state.brand.length === 0 || state.brand.includes(p.brand)) &&
-      (state.availability == 0 || p[state.availability])
-    );
-  });
+  return pro;
 }
 function addListenerPriceFilter(bounds) {
   const minSlider = document.getElementById('minPriceSlider');

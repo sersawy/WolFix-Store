@@ -51,7 +51,7 @@ export function render(products, total) {
   productsContainer.innerHTML = '';
   products.forEach((product) => {
     const template = generateTemplate(product);
-    productsContainer.insertAdjacentHTML('afterbegin', template);
+    productsContainer.insertAdjacentHTML('beforeend', template);
   });
   productsCount.innerHTML = `<div class="text-muted small mb-2">${total} result${total !== 1 ? 's' : ''}</div>`;
 }
@@ -62,7 +62,7 @@ export function renderMainSlider(products) {
     const template = `<div class="slide">
             <a href="product.html?id=${product.id}"><img src="${product.sliderImage}" alt="${product.name}" /></a>
           </div>`;
-    sliderContainer.insertAdjacentHTML('afterbegin', template);
+    sliderContainer.insertAdjacentHTML('beforeend', template);
   });
 }
 function generateStars(rating) {
