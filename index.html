@@ -162,39 +162,22 @@
             <div id="appliedFilters" class="applied-filters"></div>
             <form id="filterForm" class="filter-form">
               <div class="filter-section">
-                <h4>Quick Filters</h4>
-                <div class="quick-filters">
-                  <button type="button" class="quick-filter-btn" data-filter="on-sale">
-                    <i class="bi bi-tag"></i>
-                    On Sale
-                  </button>
-                  <button type="button" class="quick-filter-btn" data-filter="new-arrivals">
-                    <i class="bi bi-star"></i>
-                    New Arrivals
-                  </button>
-                  <button type="button" class="quick-filter-btn" data-filter="top-rated">
-                    <i class="bi bi-award"></i>
-                    Top Rated
-                  </button>
-                </div>
-              </div>
-              <div class="filter-section">
                 <h4>Price Range</h4>
                 <div class="price-range-container">
                   <div class="price-slider">
-                    <input type="range" id="minPriceSlider" min="0" max="1200" value="39" class="range-input" />
-                    <input type="range" id="maxPriceSlider" min="0" max="1200" value="1200" class="range-input" />
+                    <input type="range" name="minPriceSlider" id="minPriceSlider" class="range-input" />
+                    <input type="range" name="maxPriceSlider" id="maxPriceSlider" class="range-input" />
                     <div class="slider-track"></div>
                   </div>
                   <div class="price-inputs">
                     <div class="price-input-group">
                       <span class="currency">$</span>
-                      <input type="number" id="minPrice" min="0" max="1200" value="39" class="price-input" />
+                      <input type="number" name="minPrice" id="minPrice" class="price-input" />
                     </div>
                     <span class="price-separator">-</span>
                     <div class="price-input-group">
                       <span class="currency">$</span>
-                      <input type="number" id="maxPrice" min="0" max="1200" value="1200" class="price-input" />
+                      <input type="number" name="maxPrice" id="maxPrice" class="price-input" />
                     </div>
                   </div>
                 </div>
@@ -322,15 +305,17 @@
               <!-- Availability -->
               <div class="filter-section">
                 <h4>Availability</h4>
-                <div class="filter-options">
-                  <label class="filter-option">
-                    <input type="checkbox" id="inStock" name="availability" value="in-stock" />
-                    <span class="checkmark"></span>
-                    <span class="option-text">In Stock Only</span>
+                <div class="rating-options">
+                  <label class="rating-option">
+                    <input type="radio" name="availability" value="0" checked />
+                    <span class="option-text">ALL</span>
                   </label>
-                  <label class="filter-option">
-                    <input type="checkbox" name="availability" value="on-sale" />
-                    <span class="checkmark"></span>
+                  <label class="rating-option">
+                    <input type="radio" name="availability" value="newArrival" />
+                    <span class="option-text">New</span>
+                  </label>
+                  <label class="rating-option">
+                    <input type="radio" name="availability" value="onSale" />
                     <span class="option-text">On Sale</span>
                   </label>
                 </div>
@@ -430,5 +415,11 @@
     <button id="btn-back-to-top" class="back-to-top">
       <i class="bi bi-arrow-up"></i>
     </button>
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading products...</p>
+      </div>
+    </div>
   </body>
 </html>

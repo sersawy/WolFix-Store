@@ -26,13 +26,18 @@ export function handelAllListener() {
 }
 
 function handelClickFilter() {
+  handelShowLoading();
   const filter = filterController.getFilterData();
+  console.log(filter);
+
   productModel.setFilter(filter);
   const allProducts = productModel.getAllProducts();
+  console.log(filterController.filterProducts(allProducts, filter));
+
   productModel.setFilterProducts(filterController.filterProducts(allProducts, filter));
   const productsByPage = paginationController.getProductByPage(productModel.getFilterProducts(), 1);
   productView.render(productsByPage, productModel.getFilterProducts().length);
-  filterController.init();
+  // filterController.init();
 }
 
 function handelClickPagination(e) {
@@ -122,4 +127,9 @@ function handelMainSlider() {
     }
   });
   setInterval(nextSlide, 5000);
+}
+
+function handelShowLoading() {
+  productView.showLoading();
+  setTimeout(productView.hideLoading, 500);
 }

@@ -13,6 +13,7 @@ const state = {
     rating: 0,
     category: [],
     brand: [],
+    availability: '',
     sort: '',
   },
 };

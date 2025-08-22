@@ -69,5 +69,33 @@ function generateTemplate({ categories, brands, bounds, state }) {
 }
 
 export function render({ categories, brands, bounds, state }) {
+  console.log(bounds);
+  const minSlider = document.getElementById('minPriceSlider');
+  const maxSlider = document.getElementById('maxPriceSlider');
+  const minInput = document.getElementById('minPrice');
+  const maxInput = document.getElementById('maxPrice');
+  const min = state.min ?? bounds.min;
+  const max = state.max ?? bounds.max;
+  // minSlider.min = minInput.min = maxSlider.min = maxInput.min = bounds.min;
+  // minSlider.max = minInput.max = maxSlider.max = maxInput.max = bounds.max;
+  minSlider.value = minInput.value = min;
+  maxSlider.value = maxInput.value = max;
+  // minSlider.addEventListener('input', () => {
+  //   if (+minSlider.value >= +maxSlider.value) maxSlider.value = +minSlider.value + 1;
+  //   minInput.value = minSlider.value;
+  // });
+  // maxSlider.addEventListener('input', () => {
+  //   if (+maxSlider.value <= +minSlider.value) minSlider.value = +maxSlider.value + 1;
+
+  //   maxInput.value = maxSlider.value;
+  // });
+  // minInput.addEventListener('change', () => {
+  //   minSlider.value = minInput.value;
+  // });
+
+  // maxInput.addEventListener('change', () => {
+  //   maxSlider.value = maxInput.value;
+  // });
+
   // filterForm.innerHTML = generateTemplate({ categories, brands, bounds, state });
 }
