@@ -23,7 +23,7 @@ export function handelAllListener() {
   document.querySelector('#sortBy').addEventListener('change', handelClickFilter);
   document.querySelector('#clearAllFilters').addEventListener('click', handelClearFilter);
   document.querySelector('.pagination-container').addEventListener('click', handelClickPagination);
-  document.querySelector('#searchInput').addEventListener('input', handelSearch);
+  document.querySelector('#searchInput').addEventListener('change', handelSearch);
   document.getElementById('productsContainer').addEventListener('click', handelAddToCart);
 }
 
@@ -47,6 +47,8 @@ function handelClearFilter() {
 }
 
 function handelClickPagination(e) {
+  handelShowLoading();
+
   const btn = e.target.closest('.page-item');
   if (!btn) return;
   const nextPage = +btn.dataset.numPage;
@@ -55,6 +57,8 @@ function handelClickPagination(e) {
 }
 
 function handelSearch() {
+  handelShowLoading();
+
   const search = document.querySelector('#searchInput').value.toLowerCase();
   const filter = productModel.getFilter();
   productModel.setFilterProducts(filterController.filterProducts(productModel.getAllProducts(), filter));
