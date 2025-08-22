@@ -16,7 +16,7 @@
     <script defer type="module" src="./src/js/script.js"></script>
   </head>
   <body>
-    <header id="header">
+    <!-- <header id="header">
       <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
         <div class="container">
           <a class="navbar-brand" href="index.html">
@@ -54,37 +54,381 @@
           </div>
         </div>
       </nav>
-      <button type="button" class="btn btn-primary btn-floating btn-lg" id="btn-back-to-top">
-        <i class="bi bi-arrow-up-circle"></i>
-      </button>
-    </header>
-    <main class="container my-4">
-      <section>
-        <div class="sliderContainer">
-          <div class="sliderItems"></div>
-          <div class="dots"></div>
+    </header> -->
+    <header id="header" class="header-modern">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <!-- Logo -->
+          <a class="navbar-brand" href="index.html">
+            <img src="./src/imgs/logo.png" alt="WolFix Store" width="200" />
+          </a>
+
+          <!-- Mobile Toggle -->
+          <button
+            class="navbar-toggler custom-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- Navigation -->
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">
+                  <i class="bi bi-house-door"></i>
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="orders.html">
+                  <i class="bi bi-box-seam"></i>
+                  Orders
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                  <i class="bi bi-grid-3x3-gap"></i>
+                  Categories
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" data-category="Computers">Computers</a></li>
+                  <li><a class="dropdown-item" href="#" data-category="Phones">Phones</a></li>
+                  <li><a class="dropdown-item" href="#" data-category="Audio">Audio</a></li>
+                  <li><a class="dropdown-item" href="#" data-category="Accessories">Accessories</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <!-- Search Bar -->
+
+            <form class="search-container me-3" role="search" onsubmit="return false">
+              <div class="search-input-group">
+                <input
+                  id="searchInput"
+                  class="search-input"
+                  type="search"
+                  placeholder="Search products..."
+                  aria-label="Search"
+                />
+              </div>
+              <div id="searchSuggestions" class="search-suggestions"></div>
+            </form>
+
+            <!-- User Actions -->
+            <div class="user-actions d-flex align-items-center gap-2">
+              <button class="action-btn wishlist-btn" title="Wishlist">
+                <i class="bi bi-heart"></i>
+                <span class="badge">0</span>
+              </button>
+              <a href="cart.html" class="action-btn cart-btn" title="Shopping Cart">
+                <i class="bi bi-bag"></i>
+                <span id="cartCountBadge" class="badge">0</span>
+              </a>
+              <div id="authArea" class="auth-buttons">
+                <a class="btn btn-outline-light" href="login.html">Login</a>
+                <a class="btn btn-primary" href="register.html">Sign Up</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-      <div class="row g-4">
-        <aside class="col-lg-2 sidebar-col">
+      </nav>
+    </header>
+
+    <section class="container main-slider">
+      <div class="sliderContainer">
+        <div class="sliderItems"></div>
+        <div class="dots"></div>
+      </div>
+    </section>
+    <main class="container my-4">
+      <div class="row g-5">
+        <aside class="col-lg-3 filter-sidebar">
           <div id="filterSidebar">
-            <form id="filterForm" class="filter card p-3 shadow-sm"></form>
+            <div class="filter-header">
+              <h3>
+                <i class="bi bi-funnel"></i>
+                Filters
+              </h3>
+              <button class="btn btn-link clear-filters" id="clearAllFilters">
+                <i class="bi bi-x-circle"></i>
+                Clear All
+              </button>
+            </div>
+            <div id="appliedFilters" class="applied-filters"></div>
+            <form id="filterForm" class="filter-form">
+              <div class="filter-section">
+                <h4>Quick Filters</h4>
+                <div class="quick-filters">
+                  <button type="button" class="quick-filter-btn" data-filter="on-sale">
+                    <i class="bi bi-tag"></i>
+                    On Sale
+                  </button>
+                  <button type="button" class="quick-filter-btn" data-filter="new-arrivals">
+                    <i class="bi bi-star"></i>
+                    New Arrivals
+                  </button>
+                  <button type="button" class="quick-filter-btn" data-filter="top-rated">
+                    <i class="bi bi-award"></i>
+                    Top Rated
+                  </button>
+                </div>
+              </div>
+              <div class="filter-section">
+                <h4>Price Range</h4>
+                <div class="price-range-container">
+                  <div class="price-slider">
+                    <input type="range" id="minPriceSlider" min="0" max="1200" value="39" class="range-input" />
+                    <input type="range" id="maxPriceSlider" min="0" max="1200" value="1200" class="range-input" />
+                    <div class="slider-track"></div>
+                  </div>
+                  <div class="price-inputs">
+                    <div class="price-input-group">
+                      <span class="currency">$</span>
+                      <input type="number" id="minPrice" min="0" max="1200" value="39" class="price-input" />
+                    </div>
+                    <span class="price-separator">-</span>
+                    <div class="price-input-group">
+                      <span class="currency">$</span>
+                      <input type="number" id="maxPrice" min="0" max="1200" value="1200" class="price-input" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="filter-section">
+                <h4>Minimum Rating</h4>
+                <div class="rating-filter">
+                  <div class="rating-options">
+                    <label class="rating-option">
+                      <input type="radio" name="rating" value="0" checked />
+                      <span class="rating-display">Any Rating</span>
+                    </label>
+                    <label class="rating-option">
+                      <input type="radio" name="rating" value="4" />
+                      <span class="rating-display">
+                        <span class="stars">★★★★☆</span>
+                        4+ Stars
+                      </span>
+                    </label>
+                    <label class="rating-option">
+                      <input type="radio" name="rating" value="4.5" />
+                      <span class="rating-display">
+                        <span class="stars">★★★★★</span>
+                        4.5+ Stars
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Categories -->
+              <div class="filter-section">
+                <h4>Categories</h4>
+                <div class="filter-search">
+                  <input type="text" placeholder="Search categories..." class="filter-search-input" />
+                  <i class="bi bi-search"></i>
+                </div>
+                <div class="filter-options categories-filter">
+                  <label class="filter-option">
+                    <input type="checkbox" value="Accessories" name="category" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Accessories</span>
+                    <span class="option-count">(2)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="Audio" name="category" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Audio</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="Cameras" name="category" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Cameras</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="Computers" name="category" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Computers</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="Monitors" name="category" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Monitors</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="Phones" name="category" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Phones</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Brands -->
+              <div class="filter-section">
+                <h4>Brands</h4>
+                <div class="filter-search">
+                  <input type="text" placeholder="Search brands..." class="filter-search-input" />
+                  <i class="bi bi-search"></i>
+                </div>
+                <div class="filter-options brands-filter">
+                  <label class="filter-option">
+                    <input type="checkbox" value="Auro" name="brand" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Auro</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="KeyPro" name="brand" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">KeyPro</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="Nova" name="brand" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Nova</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="Swift" name="brand" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Swift</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="Vision" name="brand" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Vision</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="Zenix" name="brand" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">Zenix</span>
+                    <span class="option-count">(1)</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Availability -->
+              <div class="filter-section">
+                <h4>Availability</h4>
+                <div class="filter-options">
+                  <label class="filter-option">
+                    <input type="checkbox" id="inStock" name="availability" value="in-stock" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">In Stock Only</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" name="availability" value="on-sale" />
+                    <span class="checkmark"></span>
+                    <span class="option-text">On Sale</span>
+                  </label>
+                </div>
+              </div>
+            </form>
           </div>
         </aside>
-        <section class="col-lg-9">
-          <div class="d-flex align-items-center justify-content-between mb-2">
-            <h2 class="mb-0">Products</h2>
-            <div id="productsCount" class="text-muted small"></div>
+        <section class="col-lg-9 products-section">
+          <div class="products-header">
+            <div class="products-title">
+              <h2>Products</h2>
+              <div id="productsCount" class="products-count">12 results</div>
+            </div>
+            <div class="products-controls">
+              <div class="view-toggle">
+                <button class="view-btn active" data-view="grid" title="Grid View">
+                  <i class="bi bi-grid-3x3-gap"></i>
+                </button>
+                <button class="view-btn" data-view="list" title="List View">
+                  <i class="bi bi-list"></i>
+                </button>
+              </div>
+              <div class="sort-container">
+                <select id="sortBy" class="sort-select">
+                  <option value="relevance">Sort by Relevance</option>
+                  <option value="price_asc">Price: Low to High</option>
+                  <option value="price_desc">Price: High to Low</option>
+                  <option value="rating_desc">Rating: High to Low</option>
+                  <option value="name_asc">Name: A to Z</option>
+                  <option value="name_desc">Name: Z to A</option>
+                </select>
+              </div>
+              <button class="filter-toggle-mobile" data-bs-toggle="offcanvas" data-bs-target="#mobileFilters">
+                <i class="bi bi-funnel"></i>
+                Filters
+              </button>
+            </div>
           </div>
           <div id="productsContainer" class="row g-4"></div>
+          <nav class="pagination-container"></nav>
         </section>
-        <div class="paginationContainer"></div>
       </div>
     </main>
-    <footer class="border-top mt-5 py-4">
-      <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
-        <p class="mb-0">&copy; <span id="year"></span> WolFix Store.</p>
+    <footer class="footer-modern">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img src="./src/imgs/logo.png" alt="WolFix Store" width="200" />
+            </div>
+            <p class="footer-description">Your trusted destination for premium electronics and technology products.</p>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Categories</h4>
+            <ul class="footer-links">
+              <li><a href="#">Computers</a></li>
+              <li><a href="#">Phones</a></li>
+              <li><a href="#">Audio</a></li>
+              <li><a href="#">Accessories</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Customer Service</h4>
+            <ul class="footer-links">
+              <li><a href="#">Shipping Info</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; <span id="year">2025</span> WolFix Store. All rights reserved.</p>
+        </div>
       </div>
     </footer>
+    <button id="btn-back-to-top" class="back-to-top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
   </body>
 </html>

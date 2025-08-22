@@ -20,7 +20,7 @@ export function init() {
 
 export function handelAllListener() {
   document.querySelector('#filterForm').addEventListener('change', handelClickFilter);
-  document.querySelector('.paginationContainer').addEventListener('click', handelClickPagination);
+  document.querySelector('.pagination-container').addEventListener('click', handelClickPagination);
   document.querySelector('#searchInput').addEventListener('input', handelSearch);
   document.getElementById('productsContainer').addEventListener('click', handelAddToCart);
 }
@@ -121,4 +121,5 @@ function handelMainSlider() {
       goToSlide(Number(dot.target.dataset.slide));
     }
   });
+  setInterval(nextSlide, 5000);
 }

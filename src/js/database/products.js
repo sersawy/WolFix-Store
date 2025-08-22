@@ -11,6 +11,8 @@ export const products = [
     rating: 4.6,
     desc: 'Ultrabook with long battery',
     tags: ['ssd', 'light', 'work'],
+    onSale: true,
+    newArrival: false,
   },
   {
     id: 2,
@@ -23,6 +25,8 @@ export const products = [
     rating: 4.3,
     desc: 'Flagship display & camera',
     tags: ['android', '5g'],
+    onSale: true,
+    newArrival: false,
   },
   {
     id: 3,
@@ -36,6 +40,8 @@ export const products = [
     rating: 4.7,
     desc: 'ANC, comfy pads',
     tags: ['bluetooth', 'anc'],
+    onSale: true,
+    newArrival: false,
   },
   {
     id: 4,
@@ -69,10 +75,12 @@ export const products = [
     price: 59,
     image: './src/imgs/products/mouse.jpg',
     category: 'Accessories',
-    stock: 40,
+    stock: 0,
     rating: 4.1,
     desc: 'Lightweight 67g',
     tags: ['gaming', 'dpi'],
+    onSale: true,
+    newArrival: false,
   },
   {
     id: 7,

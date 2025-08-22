@@ -10,9 +10,9 @@ export function handelScrollUp() {
 
   window.addEventListener('scroll', function () {
     if (scrollY > 50) {
-      btn.style.display = 'block';
+      btn.classList.add('visible');
     } else {
-      btn.style.display = 'none';
+      btn.classList.remove('visible');
     }
   });
   btn.addEventListener('click', () => {

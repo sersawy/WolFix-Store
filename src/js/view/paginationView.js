@@ -1,7 +1,6 @@
-const paginationContainer = document.querySelector('.paginationContainer');
+const paginationContainer = document.querySelector('.pagination-container');
 function generateTemplate(numPages, currentPage) {
-  return `<nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center">
+  return `<ul class="pagination justify-content-center">
                 <li class="page-item  ${currentPage === 1 ? 'disabled' : ''}" data-num-page='${currentPage - 1}'>
                   <a class="page-link">Previous</a>
                 </li>
@@ -24,7 +23,7 @@ function generateTemplate(numPages, currentPage) {
     currentPage + 1
   }'><a class="page-link">Next</a></li>
               </ul>
-            </nav>`;
+            `;
 }
 export function render(numPages, currentPage) {
   const template = generateTemplate(numPages, currentPage);

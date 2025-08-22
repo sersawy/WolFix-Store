@@ -69,5 +69,5 @@ function generateTemplate({ categories, brands, bounds, state }) {
 }
 
 export function render({ categories, brands, bounds, state }) {
-  filterForm.innerHTML = generateTemplate({ categories, brands, bounds, state });
+  // filterForm.innerHTML = generateTemplate({ categories, brands, bounds, state });
 }
