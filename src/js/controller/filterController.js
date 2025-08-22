@@ -23,9 +23,17 @@ export function getFilterData() {
     availability: fd.get('availability'),
   };
   filter.sort = document.getElementById('sortBy').value;
-  console.log(filter);
 
   return filter;
+}
+export function clearFilter() {
+  document.getElementById('filterForm').reset();
+  const state = productModel.getFilter();
+  const categories = productModel.getAllCategories();
+  const brands = productModel.getAllBrands();
+  const bounds = productModel.priceBounds();
+  filterView.render({ categories, brands, bounds, state });
+  productModel.setFilter(getFilterData());
 }
 export function filterProducts(products, state) {
   const pro = products

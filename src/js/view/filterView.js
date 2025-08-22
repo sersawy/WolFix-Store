@@ -12,8 +12,8 @@ export function render({ categories, brands, bounds, state }) {
   const maxInput = document.getElementById('maxPrice');
   const brandFilterContainer = document.querySelector('.brands-filter');
   const categoriesFilterContainer = document.querySelector('.categories-filter');
-  const min = state.min ?? bounds.min;
-  const max = state.max ?? bounds.max;
+  const min = state?.min ?? bounds.min;
+  const max = state?.max ?? bounds.max;
 
   minSlider.value = minInput.value = min;
   maxSlider.value = maxInput.value = max;

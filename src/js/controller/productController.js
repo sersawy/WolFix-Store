@@ -21,6 +21,7 @@ export function init() {
 export function handelAllListener() {
   document.querySelector('#filterForm').addEventListener('change', handelClickFilter);
   document.querySelector('#sortBy').addEventListener('change', handelClickFilter);
+  document.querySelector('#clearAllFilters').addEventListener('click', handelClearFilter);
   document.querySelector('.pagination-container').addEventListener('click', handelClickPagination);
   document.querySelector('#searchInput').addEventListener('input', handelSearch);
   document.getElementById('productsContainer').addEventListener('click', handelAddToCart);
@@ -38,6 +39,11 @@ function handelClickFilter() {
   const productsByPage = paginationController.getProductByPage(productModel.getFilterProducts(), 1);
   productView.render(productsByPage, productModel.getFilterProducts().length);
   // filterController.init();
+}
+
+function handelClearFilter() {
+  filterController.clearFilter();
+  handelClickFilter();
 }
 
 function handelClickPagination(e) {
