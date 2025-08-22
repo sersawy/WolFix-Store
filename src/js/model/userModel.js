@@ -46,7 +46,7 @@ function getUser(email) {
 }
 function addUser(user) {
   const users = getAllUsers();
-  users.push({ name: user.name, email: user.email, password: user.password });
+  users.push(user);
   localStorage.setItem('users', JSON.stringify(users));
   return users;
 }
@@ -69,6 +69,7 @@ export function authenticate(data) {
 
   if (!user || user.password !== currentUser.password)
     throw new AppError('login', 'error', 'Login failed! Invalid username or password.');
+  console.log(user);
 
   localStorage.setItem('currentUser', JSON.stringify(user));
   return true;
@@ -101,7 +102,7 @@ export function addCartToCurrentUser(cart) {
 export function addOrderToCurrentUser(items, total) {
   const currentUser = getCurrentUser();
   if (!currentUser.orders) currentUser.orders = [];
-  currentUser.orders.push({ createdAt: new Date(), items, total });
+  currentUser.orders.push({ createdAt: new Date(), items, total, status: 'Processing' });
   setCurrentUser(currentUser);
   const users = getAllUsers();
   const user = users.find((u) => u.email === currentUser.email);
