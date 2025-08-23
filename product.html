@@ -219,25 +219,6 @@
         color: var(--text-primary);
       }
 
-      .stock-status {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-weight: 500;
-      }
-
-      .in-stock {
-        color: var(--success-color);
-      }
-
-      .low-stock {
-        color: var(--warning-color);
-      }
-
-      .out-of-stock {
-        color: var(--danger-color);
-      }
-
       .product-tags {
         display: flex;
         flex-wrap: wrap;
@@ -326,7 +307,7 @@
       }
 
       .btn-add-cart {
-        flex: 2;
+        flex: 1;
         background: var(--primary-color);
         color: var(--secondary-color);
         border: none;
@@ -344,26 +325,6 @@
         background: #e6a245;
         transform: translateY(-2px);
         box-shadow: var(--shadow);
-      }
-
-      .btn-wishlist {
-        flex: 1;
-        background: var(--surface-color);
-        color: var(--text-primary);
-        border: 1px solid var(--border-color);
-        padding: 1rem;
-        border-radius: var(--border-radius);
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        transition: all var(--transition-fast);
-      }
-
-      .btn-wishlist:hover {
-        background: var(--hover-color);
-        color: var(--primary-color);
       }
 
       .product-details-section {
@@ -658,12 +619,6 @@
 
           <div class="product-meta">
             <div class="meta-item">
-              <span class="meta-label">Availability</span>
-              <span class="meta-value stock-status in-stock">
-                <i class="bi bi-check-circle"></i> In Stock (8 units)
-              </span>
-            </div>
-            <div class="meta-item">
               <span class="meta-label">SKU</span>
               <span class="meta-value">NOVA-LTP-14U-2025</span>
             </div>
@@ -697,7 +652,6 @@
 
             <div class="action-buttons">
               <button class="btn-add-cart" id="addToCart"><i class="bi bi-cart-plus"></i> Add to Cart</button>
-              <button class="btn-wishlist"><i class="bi bi-heart"></i> Wishlist</button>
             </div>
           </div>
         </div>
