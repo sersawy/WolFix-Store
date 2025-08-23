@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - WolFix Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <style>
+      :root {
+        --primary-color: #feb451;
+        --secondary-color: #262526;
+        --background-color: #ffffff;
+        --surface-color: #f8f9fa;
+        --card-background: #ffffff;
+        --text-primary: #262526;
+        --text-secondary: #6c757d;
+        --text-muted: #adb5bd;
+        --border-color: #dee2e6;
+        --hover-color: #f1f3f4;
+        --success-color: #28a745;
+        --warning-color: #ffc107;
+        --danger-color: #dc3545;
+        --info-color: #17a2b8;
+        --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+        --transition-fast: 0.15s ease-in-out;
+        --transition-normal: 0.3s ease-in-out;
+        --transition-slow: 0.5s ease-in-out;
+        --border-radius-sm: 0.375rem;
+        --border-radius: 0.5rem;
+        --border-radius-lg: 0.75rem;
+        --border-radius-xl: 1rem;
+      }
+
+      body {
+        background-color: var(--surface-color);
+        color: var(--text-primary);
+      }
+
+      .product-detail-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+      }
+
+      .product-detail-card {
+        background: var(--card-background);
+        border-radius: var(--border-radius-xl);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+
+      .product-gallery {
+        position: relative;
+        background: var(--surface-color);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--primary-color);
+        color: var(--secondary-color);
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        z-index: 10;
+      }
+
+      .product-main-image {
+        width: 100%;
+        max-width: 500px;
+        height: 400px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+        transition: transform var(--transition-normal);
+      }
+
+      .product-main-image:hover {
+        transform: scale(1.02);
+      }
+
+      .product-thumbnails {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .product-thumbnail {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+        border: 2px solid var(--border-color);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+      }
+
+      .product-thumbnail:hover,
+      .product-thumbnail.active {
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+
+      .product-info {
+        padding: 2rem;
+      }
+
+      .product-category {
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-brand {
+        display: inline-block;
+        background: var(--surface-color);
+        color: var(--text-secondary);
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--border-radius);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .product-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .product-rating {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .rating-stars {
+        color: var(--primary-color);
+        font-size: 1.1rem;
+      }
+
+      .rating-value {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .rating-count {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .product-price {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .current-price {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .original-price {
+        font-size: 1.2rem;
+        text-decoration: line-through;
+        color: var(--text-muted);
+      }
+
+      .discount-badge {
+        background: var(--danger-color);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: var(--border-radius-sm);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .product-description {
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+      }
+
+      .product-meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: var(--surface-color);
+        border-radius: var(--border-radius-lg);
+      }
+
+      .meta-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .meta-label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.25rem;
+      }
+
+      .meta-value {
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+
+      .stock-status {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+      }
+
+      .in-stock {
+        color: var(--success-color);
+      }
+
+      .low-stock {
+        color: var(--warning-color);
+      }
+
+      .out-of-stock {
+        color: var(--danger-color);
+      }
+
+      .product-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .product-tag {
+        background: var(--surface-color);
+        color: var(--text-secondary);
+        padding: 0.35rem 0.75rem;
+        border-radius: var(--border-radius-lg);
+        font-size: 0.85rem;
+        transition: all var(--transition-fast);
+      }
+
+      .product-tag:hover {
+        background: var(--primary-color);
+        color: var(--secondary-color);
+        transform: translateY(-1px);
+      }
+
+      .product-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .quantity-selector {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .quantity-label {
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+
+      .quantity-btn {
+        background: var(--surface-color);
+        border: none;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+      }
+
+      .quantity-btn:hover {
+        background: var(--hover-color);
+      }
+
+      .quantity-input {
+        width: 60px;
+        height: 40px;
+        border: none;
+        text-align: center;
+        background: var(--card-background);
+        color: var(--text-primary);
+        font-weight: 500;
+        -moz-appearance: textfield;
+      }
+
+      .quantity-input::-webkit-outer-spin-button,
+      .quantity-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .btn-add-cart {
+        flex: 2;
+        background: var(--primary-color);
+        color: var(--secondary-color);
+        border: none;
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all var(--transition-fast);
+      }
+
+      .btn-add-cart:hover {
+        background: #e6a245;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+
+      .btn-wishlist {
+        flex: 1;
+        background: var(--surface-color);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all var(--transition-fast);
+      }
+
+      .btn-wishlist:hover {
+        background: var(--hover-color);
+        color: var(--primary-color);
+      }
+
+      .product-details-section {
+        background: var(--card-background);
+        border-radius: var(--border-radius-lg);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        margin-bottom: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--border-color);
+      }
+
+      .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+
+      .spec-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .spec-name {
+        color: var(--text-secondary);
+      }
+
+      .spec-value {
+        font-weight: 500;
+        color: var(--text-primary);
+        text-align: right;
+      }
+
+      /* Reviews */
+      .review-item {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+      }
+
+      .reviewer-name {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .review-date {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .review-rating {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .review-text {
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      /* Related products */
+      .related-products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .related-product {
+        background: var(--card-background);
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: all var(--transition-normal);
+      }
+
+      .related-product:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .related-product-image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .related-product-info {
+        padding: 1rem;
+      }
+
+      .related-product-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+      }
+
+      .related-product-price {
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      /* Responsive */
+      @media (min-width: 992px) {
+        .product-detail-card {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .product-detail-container {
+          padding: 1rem;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+        }
+
+        .product-meta {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .product-detail-card {
+        animation: fadeIn 0.5s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header" class="header-modern">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="./src/imgs/logo.png" alt="WolFix Store" width="200" />
+          </a>
+
+          <button
+            class="navbar-toggler custom-toggler text-center"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                  <i class="bi bi-house-door"></i>
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="orders.html">
+                  <i class="bi bi-clock-history"></i>
+                  Order History
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                  <i class="bi bi-grid-3x3-gap"></i>
+                  Categories
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" data-category="Computers">Computers</a></li>
+                  <li><a class="dropdown-item" href="#" data-category="Phones">Phones</a></li>
+                  <li><a class="dropdown-item" href="#" data-category="Audio">Audio</a></li>
+                  <li><a class="dropdown-item" href="#" data-category="Accessories">Accessories</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <form class="search-container me-3" role="search" onsubmit="return false">
+              <div class="search-input-group">
+                <input
+                  id="searchInput"
+                  class="search-input"
+                  type="search"
+                  placeholder="Search products..."
+                  aria-label="Search"
+                />
+                <i class="bi bi-search"></i>
+              </div>
+            </form>
+
+            <div class="user-actions d-flex align-items-center gap-2">
+              <a href="cart.html" class="action-btn cart-btn" title="Shopping Cart">
+                <i class="bi bi-bag"></i>
+                <span id="cartCountBadge" class="badge">3</span>
+              </a>
+              <div id="authArea" class="auth-buttons">
+                <a class="btn btn-outline-secondary" href="login.html">Login</a>
+                <a class="btn btn-primary" href="register.html">Sign Up</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container product-detail-container">
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Computers</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Ultra Laptop 14"</li>
+        </ol>
+      </nav>
+
+      <div class="product-detail-card">
+        <div class="product-gallery">
+          <span class="product-badge">Sale</span>
+          <img src="./src/imgs/products/laptop.jpg" alt="Ultra Laptop 14" class="product-main-image" id="mainImage" />
+          <div class="product-thumbnails">
+            <img
+              src="./src/imgs/products/laptop.jpg"
+              alt="Ultra Laptop 14 - Front view"
+              class="product-thumbnail active"
+              data-image="./src/imgs/products/laptop.jpg"
+            />
+            <img
+              src="./src/imgs/products/laptop-angle.jpg"
+              alt="Ultra Laptop 14 - Angle view"
+              class="product-thumbnail"
+              data-image="./src/imgs/products/laptop-angle.jpg"
+            />
+            <img
+              src="./src/imgs/products/laptop-side.jpg"
+              alt="Ultra Laptop 14 - Side view"
+              class="product-thumbnail"
+              data-image="./src/imgs/products/laptop-side.jpg"
+            />
+            <img
+              src="./src/imgs/products/laptop-keyboard.jpg"
+              alt="Ultra Laptop 14 - Keyboard"
+              class="product-thumbnail"
+              data-image="./src/imgs/products/laptop-keyboard.jpg"
+            />
+          </div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">Computers</div>
+          <span class="product-brand">Nova</span>
+          <h1 class="product-title">Ultra Laptop 14"</h1>
+
+          <div class="product-rating">
+            <span class="rating-stars">★★★★☆</span>
+            <span class="rating-value">4.6</span>
+            <span class="rating-count">(128 reviews)</span>
+          </div>
+
+          <div class="product-price">
+            <span class="current-price">$1,200.00</span>
+            <span class="original-price">$1,499.00</span>
+            <span class="discount-badge">20% OFF</span>
+          </div>
+
+          <p class="product-description">
+            Experience unparalleled performance with the Ultra Laptop 14". Featuring a powerful processor, stunning
+            display, and all-day battery life, this ultrabook is designed for professionals who demand the best. With
+            its lightweight design and premium build quality, it's the perfect companion for work and travel.
+          </p>
+
+          <div class="product-meta">
+            <div class="meta-item">
+              <span class="meta-label">Availability</span>
+              <span class="meta-value stock-status in-stock">
+                <i class="bi bi-check-circle"></i> In Stock (8 units)
+              </span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">SKU</span>
+              <span class="meta-value">NOVA-LTP-14U-2025</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Weight</span>
+              <span class="meta-value">2.8 lbs (1.27 kg)</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Dimensions</span>
+              <span class="meta-value">12.7" x 8.9" x 0.6"</span>
+            </div>
+          </div>
+
+          <div class="product-tags">
+            <span class="product-tag">SSD</span>
+            <span class="product-tag">Lightweight</span>
+            <span class="product-tag">Work</span>
+            <span class="product-tag">Portable</span>
+            <span class="product-tag">Premium</span>
+          </div>
+
+          <div class="product-actions">
+            <div class="quantity-selector">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-control">
+                <button class="quantity-btn" id="decreaseQty">-</button>
+                <input type="number" class="quantity-input" id="productQty" value="1" min="1" max="8" />
+                <button class="quantity-btn" id="increaseQty">+</button>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-add-cart" id="addToCart"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+              <button class="btn-wishlist"><i class="bi bi-heart"></i> Wishlist</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-details-section">
+        <h2 class="section-title">Product Details</h2>
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-name">Display</span>
+            <span class="spec-value">14" IPS, 2560x1600, 400 nits</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-name">Processor</span>
+            <span class="spec-value">Intel Core i7-1260P</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-name">Memory</span>
+            <span class="spec-value">16GB LPDDR5</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-name">Storage</span>
+            <span class="spec-value">512GB NVMe SSD</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-name">Graphics</span>
+            <span class="spec-value">Intel Iris Xe</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-name">Battery</span>
+            <span class="spec-value">Up to 12 hours</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-name">Ports</span>
+            <span class="spec-value">2x Thunderbolt 4, 1x USB-A, HDMI, 3.5mm audio</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-name">Wireless</span>
+            <span class="spec-value">Wi-Fi 6E, Bluetooth 5.2</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-name">Operating System</span>
+            <span class="spec-value">Windows 11 Pro</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-name">Color</span>
+            <span class="spec-value">Space Gray</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-details-section">
+        <h2 class="section-title">Customer Reviews</h2>
+
+        <div class="review-item">
+          <div class="review-header">
+            <div>
+              <div class="reviewer-name">Michael Johnson</div>
+              <div class="review-date">August 15, 2025</div>
+            </div>
+            <div class="review-rating">★★★★★</div>
+          </div>
+          <p class="review-text">
+            This laptop exceeded my expectations. The display is absolutely stunning, and the battery life is as
+            advertised. I can easily get through a full workday without needing to charge. The keyboard is comfortable
+            to type on, and the build quality is premium.
+          </p>
+        </div>
+
+        <div class="review-item">
+          <div class="review-header">
+            <div>
+              <div class="reviewer-name">Sarah Williams</div>
+              <div class="review-date">August 10, 2025</div>
+            </div>
+            <div class="review-rating">★★★★☆</div>
+          </div>
+          <p class="review-text">
+            Great laptop for professionals. Lightweight and powerful enough for my design work. The only reason I'm
+            giving 4 stars instead of 5 is that it can get a bit warm under heavy load, but nothing too concerning.
+          </p>
+        </div>
+
+        <div class="review-item">
+          <div class="review-header">
+            <div>
+              <div class="reviewer-name">David Chen</div>
+              <div class="review-date">August 5, 2025</div>
+            </div>
+            <div class="review-rating">★★★★★</div>
+          </div>
+          <p class="review-text">
+            I've been using this laptop for a month now, and it's been flawless. The performance is snappy, the screen
+            is beautiful, and it's so light that I barely notice it in my bag. Highly recommended for anyone who needs a
+            reliable machine for work.
+          </p>
+        </div>
+      </div>
+
+      <div class="product-details-section">
+        <h2 class="section-title">Related Products</h2>
+        <div class="related-products">
+          <div class="related-product">
+            <img src="./src/imgs/products/phone.jpg" alt="Smartphone X" class="related-product-image" />
+            <div class="related-product-info">
+              <div class="related-product-title">Smartphone X</div>
+              <div class="related-product-price">$799.00</div>
+            </div>
+          </div>
+
+          <div class="related-product">
+            <img src="./src/imgs/products/headphones.jpg" alt="Wireless Headphones" class="related-product-image" />
+            <div class="related-product-info">
+              <div class="related-product-title">Wireless Headphones</div>
+              <div class="related-product-price">$149.00</div>
+            </div>
+          </div>
+
+          <div class="related-product">
+            <img src="./src/imgs/products/monitor.jpg" alt="27" 4k="" monitor"="" class="related-product-image">
+            <div class="related-product-info">
+              <div class="related-product-title">27" 4K Monitor</div>
+              <div class="related-product-price">$399.00</div>
+            </div>
+          </div>
+
+          <div class="related-product">
+            <img src="./src/imgs/products/keyboard.jpg" alt="Mechanical Keyboard" class="related-product-image" />
+            <div class="related-product-info">
+              <div class="related-product-title">Mechanical Keyboard</div>
+              <div class="related-product-price">$99.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-modern">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img src="./src/imgs/logo.png" alt="WolFix Store" width="200" />
+            </div>
+            <p class="footer-description">Your trusted destination for premium electronics and technology products.</p>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Categories</h4>
+            <ul class="footer-links">
+              <li><a href="#">Computers</a></li>
+              <li><a href="#">Phones</a></li>
+              <li><a href="#">Audio</a></li>
+              <li><a href="#">Accessories</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Customer Service</h4>
+            <ul class="footer-links">
+              <li><a href="#">Shipping Info</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© <span id="year">2025</span> WolFix Store. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <button id="btn-back-to-top" class="back-to-top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script>
+      // Set current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Quantity controls
+      const decreaseBtn = document.getElementById('decreaseQty');
+      const increaseBtn = document.getElementById('increaseQty');
+      const quantityInput = document.getElementById('productQty');
+
+      decreaseBtn.addEventListener('click', () => {
+        if (quantityInput.value > 1) {
+          quantityInput.value = parseInt(quantityInput.value) - 1;
+        }
+      });
+
+      increaseBtn.addEventListener('click', () => {
+        if (quantityInput.value < 8) {
+          quantityInput.value = parseInt(quantityInput.value) + 1;
+        }
+      });
+
+      // Image gallery
+      const mainImage = document.getElementById('mainImage');
+      const thumbnails = document.querySelectorAll('.product-thumbnail');
+
+      thumbnails.forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          // Update main image
+          mainImage.src = thumb.dataset.image;
+          mainImage.alt = thumb.alt;
+
+          // Update active thumbnail
+          thumbnails.forEach((t) => t.classList.remove('active'));
+          thumb.classList.add('active');
+        });
+      });
+
+      // Add to cart functionality
+      document.getElementById('addToCart').addEventListener('click', () => {
+        const quantity = parseInt(quantityInput.value);
+        alert(`Added ${quantity} Ultra Laptop 14" to your cart!`);
+        // Here you would typically update the cart count and store the item
+      });
+
+      // Back to top button
+      const backToTopButton = document.getElementById('btn-back-to-top');
+
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    </script>
+  </body>
+</html>

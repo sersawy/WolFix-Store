@@ -39,12 +39,12 @@ export function filterProducts(products, state) {
   const pro = products
     .filter((p) => {
       return (
-        p.price >= state.minPrice &&
-        p.price <= state.maxPrice &&
-        (state.minRating == 0 || p.rating >= state.minRating) &&
-        (state.category.length === 0 || state.category.includes(p.category)) &&
-        (state.brand.length === 0 || state.brand.includes(p.brand)) &&
-        (state.availability == 0 || p[state.availability])
+        (!state.minPrice || p.price >= state.minPrice) &&
+        (!state.maxPrice || p.price <= state.maxPrice) &&
+        (!state.minRating || p.rating >= state.minRating) &&
+        (!state.category?.length || state.category.includes(p.category)) &&
+        (!state.brand?.length || state.brand.includes(p.brand)) &&
+        (state.availability == 'all' || p[state.availability])
       );
     })
     .sort((a, b) => {
