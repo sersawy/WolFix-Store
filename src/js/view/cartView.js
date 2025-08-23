@@ -38,7 +38,7 @@ export function generateRow(item) {
   `;
 }
 export function render(items, total) {
-  setCartCount(items.length);
+  setCartCount(items?.length);
 
   let template = `<main class="container my-4">
   <div class="empty-cart-container">
@@ -59,7 +59,7 @@ export function render(items, total) {
     </div>
   </div>
 </main>`;
-  if (items.length)
+  if (items?.length)
     template = `<div class="cart-container">
         <div class="cart-header">
           <h2><i class="bi bi-cart3"></i> Shopping Cart</h2>
@@ -94,7 +94,7 @@ export function render(items, total) {
         </div>
       </div>`;
   cartContainer.innerHTML = template;
-  if (items.length) document.getElementById('cartTotal').innerText = '$' + total;
+  if (items?.length) document.getElementById('cartTotal').innerText = '$' + total;
 }
 export function showLoading() {
   if (loadingOverlay) {

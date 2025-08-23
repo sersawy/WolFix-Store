@@ -55,7 +55,7 @@ export function render(orders) {
         </a>
       </div>
     </div>`;
-  if (orders.length) template = orders.map(generateTemplate).join('');
+  if (orders?.length) template = orders.map(generateTemplate).join('');
   document.querySelector('.orders-grid').innerHTML = template;
 }
 

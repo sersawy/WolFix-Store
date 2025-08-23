@@ -179,11 +179,11 @@ function generateReviewTemplate(review) {
         </div>`;
 }
 function generateRelatedProductTemplate(product) {
-  return `<div class="related-product">
+  return `<a class="text-reset text-decoration-none" href="product.html?id=${product.id}"><div class="related-product">
             <img src="${product.image}" alt="${product.name}" class="related-product-image" />
             <div class="related-product-info">
               <div class="related-product-title">${product.name}</div>
               <div class="related-product-price">$${((product.price * (100 - product.sale)) / 100).toFixed(2)}</div>
             </div>
-          </div>`;
+          </div></a>`;
 }

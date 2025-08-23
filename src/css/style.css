@@ -2651,13 +2651,16 @@ textarea:focus {
 }
 
 .discount-badge {
-  display: inline-block;
+  display: none;
   background: var(--danger-color);
   color: white;
   padding: 0.25rem 0.5rem;
   border-radius: var(--border-radius-sm);
   font-weight: 600;
   font-size: 0.9rem;
+}
+.discount-badge:not(:empty) {
+  display: inline-block;
 }
 .product-detail-meta {
   display: grid;

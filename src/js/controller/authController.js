@@ -121,10 +121,13 @@ function logout() {
 
 export function checkLogin() {
   const currentUser = userModel.getCurrentUser();
+  console.log(currentUser);
+
   try {
     userModel.authenticate(currentUser);
     authView.renderUserSection(currentUser);
     handelLogoutListener();
+    return true;
   } catch (err) {
     if (!err.isOperational) return console.error(err.message);
     userModel.removeCurrentUser();

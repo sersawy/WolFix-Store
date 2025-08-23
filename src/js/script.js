@@ -19,10 +19,12 @@ if (location.pathname.includes('cart.html')) {
   cartController.handelPage();
 }
 if (location.pathname.includes('orders.html')) {
-  orderController.init();
+  if (checkLogin) orderController.init();
+  else location.href = 'login.html';
 }
 if (location.pathname.includes('order-confirmation.html')) {
-  orderController.initOrderConfirmation();
+  if (checkLogin) orderController.initOrderConfirmation();
+  else location.href = 'login.html';
 }
 if (location.pathname.includes('/product.html')) {
   productController.initProductDetails();
