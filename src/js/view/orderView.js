@@ -67,7 +67,9 @@ function generateTemplateItemsConfirmation(items) {
                   <div class="item-details">
                   <div class="item-name">${i.product.name}</div>
                   <div class="item-category">${i.product.category} • ${i.product.brand}</div>
-                  <div class="item-price">$$${(i.product.price * i.qty).toFixed(2)}</div>
+                  <div class="item-price">$${(((i.product.price * (100 - i.product.sale)) / 100) * i.qty).toFixed(
+                    2
+                  )}</div>
                   </div>
                   <span class="item-quantity">Qty: ${i.qty}</span>
                 </div>`

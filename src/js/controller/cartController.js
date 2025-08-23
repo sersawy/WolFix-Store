@@ -10,8 +10,8 @@ export function init() {
   else if (currentUser && currentUser.cart) cartModel.set(currentUser.cart);
   cartView.setCartCount(cartModel.get()?.length);
 }
-export function addToCart(product) {
-  cartModel.add(product);
+export function addToCart(product, qty = 1) {
+  cartModel.add(product, qty);
   const currentUser = userModel.getCurrentUser();
   if (currentUser) userModel.addCartToCurrentUser(cartModel.get());
   cartView.setCartCount(cartModel.get().length);

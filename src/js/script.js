@@ -24,3 +24,6 @@ if (location.pathname.includes('orders.html')) {
 if (location.pathname.includes('order-confirmation.html')) {
   orderController.initOrderConfirmation();
 }
+if (location.pathname.includes('/product.html')) {
+  productController.initProductDetails();
+}

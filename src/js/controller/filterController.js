@@ -44,7 +44,7 @@ export function filterProducts(products, state) {
         (!state.minRating || p.rating >= state.minRating) &&
         (!state.category?.length || state.category.includes(p.category)) &&
         (!state.brand?.length || state.brand.includes(p.brand)) &&
-        (state.availability == 'all' || p[state.availability])
+        (state.availability == 'all' || !state.availability || p[state.availability])
       );
     })
     .sort((a, b) => {

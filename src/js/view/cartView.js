@@ -18,7 +18,7 @@ export function generateRow(item) {
           </div>
         </div>
       </td>
-      <td class="cart-item-price">$${p.price}</td>
+      <td class="cart-item-price">$${(p.price * (100 - p.sale)) / 100}</td>
       <td>
         <div class="cart-item-quantity">
           <div class="quantity-control">
@@ -28,7 +28,7 @@ export function generateRow(item) {
           </div>
         </div>
       </td>
-      <td class="cart-item-subtotal">$${(p.price * item.qty).toFixed(2)}</td>
+      <td class="cart-item-subtotal">$${(((p.price * (100 - p.sale)) / 100) * item.qty).toFixed(2)}</td>
       <td>
         <button class="cart-item-remove" data-id="${p.id}">
           <i class="bi bi-x-lg"></i>

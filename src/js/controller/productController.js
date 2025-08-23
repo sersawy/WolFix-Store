@@ -17,6 +17,8 @@ export function init() {
   handelAllListener();
   handelMainSlider();
   handelMobileFilter();
+  const category = new URLSearchParams(location.search).get('category')?.split(',')[0];
+  if (category) handelFilterCategory(category);
 }
 
 export function handelAllListener() {
@@ -28,10 +30,13 @@ export function handelAllListener() {
   document.getElementById('productsContainer').addEventListener('click', handelAddToCart);
 }
 
-async function handelClickFilter() {
+async function handelClickFilter(category) {
   await handelShowLoading();
   const filter = filterController.getFilterData();
-
+  if (category) {
+    filter.category = [category];
+    document.querySelector(`input[value = "${category}"]`).checked = true;
+  }
   productModel.setFilter(filter);
   const allProducts = productModel.getAllProducts();
 
@@ -41,7 +46,20 @@ async function handelClickFilter() {
   productView.render(productsByPage, productModel.getFilterProducts().length);
   // filterController.init();
 }
+function handelFilterCategory(category) {
+  const filter = filterController.getFilterData();
+  if (category) {
+    filter.category = [category];
+    document.querySelector(`input[value = "${category}"]`).checked = true;
+  }
+  productModel.setFilter(filter);
+  const allProducts = productModel.getAllProducts();
 
+  productModel.setFilterProducts(filterController.filterProducts(allProducts, filter));
+
+  const productsByPage = paginationController.getProductByPage(productModel.getFilterProducts(), 1);
+  productView.render(productsByPage, productModel.getFilterProducts().length);
+}
 function handelClearFilter() {
   filterController.clearFilter();
   handelClickFilter();
@@ -72,10 +90,12 @@ async function handelSearch() {
 }
 
 function handelAddToCart(e) {
-  const btn = e.target.closest('.add-to-cart');
+  const btn = e.target.closest('.btn-add-to-cart');
   if (!btn) return;
   const productId = +btn.dataset.id;
-  cartController.addToCart(productModel.getProduct(productId));
+  const quantityInput = document.querySelector('.quantity-input');
+  if (quantityInput) cartController.addToCart(productModel.getProduct(productId), +quantityInput.value);
+  else cartController.addToCart(productModel.getProduct(productId));
 }
 
 function handelMainSlider() {
@@ -165,4 +185,15 @@ function handelMobileFilter() {
 
   moveFilters();
   window.addEventListener('resize', moveFilters);
+}
+
+export function initProductDetails() {
+  const id = new URLSearchParams(location.search).get('id');
+  const product = productModel.getProduct(+id);
+  const relatedProducts = filterController.filterProducts(productModel.getAllProducts(), {
+    category: [product.category],
+  });
+  productView.renderDetails(product, relatedProducts);
+  cartController.init();
+  document.querySelector('.product-info').addEventListener('click', handelAddToCart);
 }
