@@ -1,4 +1,6 @@
 const cartContainer = document.getElementById('cartContainer');
+const loadingOverlay = document.getElementById('loadingOverlay');
+
 export function setCartCount(number) {
   document.querySelector('#cartCountBadge').textContent = number;
 }
@@ -32,18 +34,6 @@ export function generateRow(item) {
           <i class="bi bi-x-lg"></i>
         </button>
       </td>
-    </tr>
-  `;
-  return `
-    <tr>
-      <td><img src="${p.image}" alt="${p.name}" class="rounded" style="width:56px;height:56px;object-fit:cover"></td>
-      <td>${p.name}</td>
-      <td>$${p.price}</td>
-      <td style="max-width:120px"><input class="form-control form-control-sm qty-input" type="number" min="1" value="${
-        item.qty
-      }" data-id="${p.id}"></td>
-      <td class="fw-bold">$${(p.price * item.qty).toFixed(2)}</td>
-      <td><button class="btn btn-sm btn-outline-danger btn-remove-product" data-id="${p.id}">&times;</button></td>
     </tr>
   `;
 }
@@ -105,4 +95,15 @@ export function render(items, total) {
       </div>`;
   cartContainer.innerHTML = template;
   if (items.length) document.getElementById('cartTotal').innerText = '$' + total;
+}
+export function showLoading() {
+  if (loadingOverlay) {
+    loadingOverlay.classList.add('active');
+  }
+}
+
+export function hideLoading() {
+  if (loadingOverlay) {
+    loadingOverlay.classList.remove('active');
+  }
 }

@@ -21,3 +21,6 @@ if (location.pathname.includes('cart.html')) {
 if (location.pathname.includes('orders.html')) {
   orderController.init();
 }
+if (location.pathname.includes('order-confirmation.html')) {
+  orderController.initOrderConfirmation();
+}

@@ -58,3 +58,32 @@ export function render(orders) {
   if (orders.length) template = orders.map(generateTemplate).join('');
   document.querySelector('.orders-grid').innerHTML = template;
 }
+
+function generateTemplateItemsConfirmation(items) {
+  return items
+    .map(
+      (i) => `<div class="order-item">
+                  <img src="${i.product.image}" alt="${i.product.name}" class="item-image" />
+                  <div class="item-details">
+                  <div class="item-name">${i.product.name}</div>
+                  <div class="item-category">${i.product.category} • ${i.product.brand}</div>
+                  <div class="item-price">$$${(i.product.price * i.qty).toFixed(2)}</div>
+                  </div>
+                  <span class="item-quantity">Qty: ${i.qty}</span>
+                </div>`
+    )
+    .join('');
+}
+
+export function renderOrderConfirmation(order) {
+  const date = new Date(order.createdAt);
+  document.querySelector('.order-date').textContent = date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+  document.querySelector('.order-status').textContent = order.status;
+  document.querySelectorAll('.order-total').forEach((e) => (e.textContent = `$${order.total.toFixed(2)}`));
+  document.querySelectorAll('.order-items-count').forEach((e) => (e.textContent = order.items.length));
+  document.querySelector('.order-items-container').innerHTML = generateTemplateItemsConfirmation(order.items);
+}

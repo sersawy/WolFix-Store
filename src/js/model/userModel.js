@@ -38,7 +38,7 @@ const validation = function (user) {
   return true;
 };
 
-function getAllUsers() {
+export function getAllUsers() {
   return JSON.parse(localStorage.getItem('users')) ?? [];
 }
 function getUser(email) {
@@ -69,7 +69,6 @@ export function authenticate(data) {
 
   if (!user || user.password !== currentUser.password)
     throw new AppError('login', 'error', 'Login failed! Invalid username or password.');
-  console.log(user);
 
   localStorage.setItem('currentUser', JSON.stringify(user));
   return true;
@@ -86,7 +85,7 @@ export function logout() {
 export function getCurrentUser() {
   return JSON.parse(localStorage.getItem('currentUser'));
 }
-function setCurrentUser(user) {
+export function setCurrentUser(user) {
   localStorage.setItem('currentUser', JSON.stringify(user));
 }
 export function addCartToCurrentUser(cart) {
@@ -118,4 +117,7 @@ export function removeCurrentCart() {
   const user = users.find((u) => u.email === currentUser.email);
   user.cart = [];
   localStorage.setItem('users', JSON.stringify(users));
+}
+export function getLastOrder() {
+  return getCurrentUser().orders.pop();
 }

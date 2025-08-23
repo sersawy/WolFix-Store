@@ -44,14 +44,16 @@ function handelRemoveProduct(e) {
   if (currentUser) userModel.addCartToCurrentUser(cartModel.get());
   cartView.render(cartModel.get(), cartModel.total());
 }
-function handelCheckout() {
+async function handelCheckout() {
   const order = cartModel.get();
   const currentUser = userModel.getCurrentUser();
   if (!currentUser) location.href = './login.html';
   userModel.addOrderToCurrentUser(order, cartModel.total());
   sendNotification('Order placed successfully!', 'success');
+  await handelShowLoading();
   cartModel.removeCurrentCart();
   userModel.removeCurrentCart();
+  location.href = './order-confirmation.html';
 }
 
 export function handelPage() {
@@ -61,4 +63,9 @@ export function handelPage() {
   document.getElementById('cartContainer').addEventListener('click', handelChangeQuantity);
   document.getElementById('cartContainer').addEventListener('click', handelRemoveProduct);
   document.getElementById('checkoutBtn')?.addEventListener('click', handelCheckout);
+}
+async function handelShowLoading() {
+  cartView.showLoading();
+  await new Promise((resolve) => setTimeout(resolve, 500));
+  cartView.hideLoading();
 }

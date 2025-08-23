@@ -3,3 +3,7 @@ import * as orderView from '../view/orderView.js';
 export function init() {
   orderView.render(userModel.getCurrentUser().orders);
 }
+
+export function initOrderConfirmation() {
+  orderView.renderOrderConfirmation(userModel.getLastOrder());
+}
