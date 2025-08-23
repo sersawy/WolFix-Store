@@ -121,7 +121,6 @@ function logout() {
 
 export function checkLogin() {
   const currentUser = userModel.getCurrentUser();
-  console.log(currentUser);
 
   try {
     userModel.authenticate(currentUser);

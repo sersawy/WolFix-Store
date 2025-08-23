@@ -8,9 +8,11 @@ handelScrollUp();
 const checkLogin = authController.checkLogin();
 if (location.pathname.includes('login.html')) {
   if (!checkLogin) authController.login();
+  else location.href = 'index.html';
 }
 if (location.pathname.includes('register.html')) {
   if (!checkLogin) authController.registration();
+  else location.href = 'index.html';
 }
 if (location.pathname.includes('index.html') || location.pathname === '/') {
   productController.init();
