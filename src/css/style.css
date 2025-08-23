@@ -1563,7 +1563,6 @@ textarea:focus {
   background: var(--card-background);
   color: var(--text-primary);
   font-weight: 500;
-  -moz-appearance: textfield;
 }
 
 .quantity-input::-webkit-outer-spin-button,
