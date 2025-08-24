@@ -15,7 +15,7 @@ export function addToCart(product, qty = 1) {
   const currentUser = userModel.getCurrentUser();
   if (currentUser) userModel.addCartToCurrentUser(cartModel.get());
   cartView.setCartCount(cartModel.get().length);
-  sendNotification(`Added ${product.name} to cart.`);
+  sendNotification(`Added ${product.name.length > 60 ? product.name.slice(0, 60) + '...' : product.name} to cart.`);
 }
 
 function handelChangeQuantity(e) {

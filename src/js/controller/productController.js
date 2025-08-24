@@ -66,6 +66,7 @@ function handelClearFilter() {
 }
 
 async function handelClickPagination(e) {
+  window.scrollTo({ top: 300, behavior: 'smooth' });
   const btn = e.target.closest('.page-item');
   if (!btn) return;
   await handelShowLoading();
@@ -112,6 +113,7 @@ function handelMainSlider() {
     );
   createDots();
   const dots = document.querySelectorAll('.dots__dot');
+  const sliderControls = document.querySelector('.slider-controls');
   const goToSlide = (slide) => {
     dots.forEach((dot) => dot.classList.remove('dots__dot--active'));
     document.querySelector(`.dots__dot[data-slide='${slide}']`).classList.add('dots__dot--active');
@@ -156,6 +158,10 @@ function handelMainSlider() {
       goToSlide(Number(dot.target.dataset.slide));
     }
   });
+  sliderControls.addEventListener('click', function (e) {
+    if (e.target.closest('.prev')) previousSlide();
+    if (e.target.closest('.next')) nextSlide();
+  });
   setInterval(nextSlide, 5000);
 }
 
@@ -193,7 +199,7 @@ export function initProductDetails() {
   const relatedProducts = filterController.filterProducts(productModel.getAllProducts(), {
     category: [product.category],
   });
-  productView.renderDetails(product, relatedProducts);
+  productView.renderDetails(product, [...relatedProducts].sort(() => Math.random() - 0.5).slice(0, 8));
   cartController.init();
   document.querySelector('.product-info').addEventListener('click', handelAddToCart);
 }

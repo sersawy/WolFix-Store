@@ -18,7 +18,7 @@ export function generateRow(item) {
           </div>
         </div>
       </td>
-      <td class="cart-item-price">$${(p.price * (100 - p.sale)) / 100}</td>
+      <td class="cart-item-price">$${((p.price * (100 - p.sale)) / 100).toFixed(2)}</td>
       <td>
         <div class="cart-item-quantity">
           <div class="quantity-control">
@@ -94,7 +94,7 @@ export function render(items, total) {
         </div>
       </div>`;
   cartContainer.innerHTML = template;
-  if (items?.length) document.getElementById('cartTotal').innerText = '$' + total;
+  if (items?.length) document.getElementById('cartTotal').innerText = '$' + total.toFixed(2);
 }
 export function showLoading() {
   if (loadingOverlay) {

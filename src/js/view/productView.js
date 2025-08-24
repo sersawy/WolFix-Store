@@ -55,7 +55,6 @@ function generateTemplate(product) {
   `;
 }
 export function render(products, total) {
-  window.scrollTo({ top: 300, behavior: 'smooth' });
   productsContainer.innerHTML = '';
   products.forEach((product) => {
     const template = generateTemplate(product);
@@ -98,13 +97,14 @@ export function renderDetails(product, relatedProducts) {
   document.querySelectorAll('.product-name').forEach((e) => (e.textContent = product.name));
   document.querySelector('.product-detail-brand').textContent = product.brand;
   document.querySelectorAll('.product-category-name').forEach((e) => (e.textContent = product.category));
+  document.querySelector('.breadcrumb-product-category-name').href = `index.html?category=${product.category}`;
   const productMainImg = document.querySelector('.product-main-image');
   productMainImg.src = product.image;
   productMainImg.alt = product.name;
   if (product.sale) document.querySelector('.badge-sale').hidden = false;
   if (product.newArrival) document.querySelector('.product-badge-new').hidden = false;
   const thumbnailsContainer = document.querySelector('.product-thumbnails');
-  product.thumbnails.forEach((img, index) => {
+  [product.image, ...product.thumbnails].forEach((img, index) => {
     const template = generateImgThumbnailTemplate(img, product.name, index);
 
     thumbnailsContainer.insertAdjacentHTML('beforeend', template);
