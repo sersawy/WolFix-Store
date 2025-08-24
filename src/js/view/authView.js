@@ -16,6 +16,8 @@ export function renderLoginSection() {
 export function renderError(err) {
   const type = err.type;
   if (type === 'registration') {
+    window.scrollTo({ top: 100, behavior: 'smooth' });
+
     const input = document.getElementsByName(`${err.value}`)[0];
     input.classList.add('error-input');
     const errorSpan = document.querySelector(`#${err.value}Error`);

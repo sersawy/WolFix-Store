@@ -55,6 +55,7 @@ function generateTemplate(product) {
   `;
 }
 export function render(products, total) {
+  window.scrollTo({ top: 300, behavior: 'smooth' });
   productsContainer.innerHTML = '';
   products.forEach((product) => {
     const template = generateTemplate(product);
