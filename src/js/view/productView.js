@@ -195,7 +195,6 @@ function generateRelatedProductTemplate(product) {
         </div>
         <div class="card-body d-flex flex-column">
           <div class="product-meta">
-            <span class="product-category">${product.category}</span>
             <span class="product-brand">${product.brand}</span>
           </div>
           <h3 class="product-title">${product.name}</h3>
