@@ -1,6 +1,6 @@
 function generateTemplate(data, type) {
   return `<label class="filter-option">
-            <input type="checkbox" value="${data}" name="${type}" />
+            <input type="checkbox" value="${data.toLowerCase()}" name="${type}" />
             <span class="checkmark"></span>
             <span class="option-text">${data}</span>
           </label>`;

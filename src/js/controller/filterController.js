@@ -42,8 +42,9 @@ export function filterProducts(products, state) {
         (!state.minPrice || p.price >= state.minPrice) &&
         (!state.maxPrice || p.price <= state.maxPrice) &&
         (!state.minRating || p.rating >= state.minRating) &&
-        (!state.category?.length || state.category.includes(p.category)) &&
-        (!state.brand?.length || state.brand.includes(p.brand)) &&
+        (!state.category?.length ||
+          state.category.map((item) => item.toLowerCase()).includes(p.category.toLowerCase())) &&
+        (!state.brand?.length || state.brand.map((item) => item.toLowerCase()).includes(p.brand.toLowerCase())) &&
         (state.availability == 'all' || !state.availability || p[state.availability])
       );
     })
