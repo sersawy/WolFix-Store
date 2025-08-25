@@ -6,6 +6,7 @@ import * as paginationController from './paginationController.js';
 import * as filterController from './filterController.js';
 import * as cartController from './cartController.js';
 
+import { handelShowLoading } from './../utils/helpers.js';
 import { RES_PER_PAGE } from '../config.js';
 
 export function init() {
@@ -159,13 +160,6 @@ function handelMainSlider() {
     if (e.target.closest('.next')) nextSlide();
   });
   setInterval(nextSlide, 5000);
-}
-
-async function handelShowLoading() {
-  productView.showLoading();
-  await new Promise((resolve) => setTimeout(resolve, 500));
-
-  productView.hideLoading();
 }
 
 function handelMobileFilter() {

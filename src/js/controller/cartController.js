@@ -3,7 +3,7 @@ import * as cartModel from '../model/cartModel.js';
 
 import * as userModel from '../model/userModel.js';
 
-import { sendNotification } from '../utils/helpers.js';
+import { sendNotification, handelShowLoading } from '../utils/helpers.js';
 export function init() {
   const currentUser = userModel.getCurrentUser();
   if (currentUser && cartModel.get()) userModel.addCartToCurrentUser(cartModel.get());
@@ -63,9 +63,4 @@ export function handelPage() {
   document.getElementById('cartContainer').addEventListener('click', handelChangeQuantity);
   document.getElementById('cartContainer').addEventListener('click', handelRemoveProduct);
   document.getElementById('checkoutBtn')?.addEventListener('click', handelCheckout);
-}
-async function handelShowLoading() {
-  cartView.showLoading();
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  cartView.hideLoading();
 }

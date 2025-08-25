@@ -1,6 +1,7 @@
 import * as userModel from '../model/userModel.js';
 import * as cartModel from '../model/cartModel.js';
 import * as authView from '../view/authView.js';
+import { handelShowLoading } from '../utils/helpers.js';
 
 function handelLogoutListener() {
   const btn = document.getElementById('logoutBtn');
@@ -98,8 +99,9 @@ function validateConfirmPassword() {
 
 export function login() {
   const form = document.getElementById('loginForm');
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    await handelShowLoading();
     const data = Object.fromEntries(new FormData(form).entries());
     try {
       userModel.authenticate(data);
@@ -138,8 +140,9 @@ export function registration() {
   const form = document.getElementById('registerForm');
   document.getElementById('password').addEventListener('keyup', validatePassword);
   document.getElementById('confirmPassword').addEventListener('keyup', validateConfirmPassword);
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    await handelShowLoading();
     const data = Object.fromEntries(new FormData(form).entries());
     try {
       userModel.createUser(data);

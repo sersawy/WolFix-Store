@@ -1,7 +1,6 @@
 const productsContainer = document.getElementById('productsContainer');
 const sliderContainer = document.querySelector('.sliderItems');
 const productsCount = document.getElementById('productsCount');
-const loadingOverlay = document.getElementById('loadingOverlay');
 
 export function detail(product) {
   return `
@@ -78,18 +77,6 @@ function generateStars(rating) {
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return '★'.repeat(fullStars) + (hasHalfStar ? '☆' : '') + '☆'.repeat(emptyStars);
-}
-
-export function showLoading() {
-  if (loadingOverlay) {
-    loadingOverlay.classList.add('active');
-  }
-}
-
-export function hideLoading() {
-  if (loadingOverlay) {
-    loadingOverlay.classList.remove('active');
-  }
 }
 
 export function renderDetails(product, relatedProducts) {

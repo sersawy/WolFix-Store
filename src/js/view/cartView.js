@@ -96,14 +96,3 @@ export function render(items, total) {
   cartContainer.innerHTML = template;
   if (items?.length) document.getElementById('cartTotal').innerText = '$' + total.toFixed(2);
 }
-export function showLoading() {
-  if (loadingOverlay) {
-    loadingOverlay.classList.add('active');
-  }
-}
-
-export function hideLoading() {
-  if (loadingOverlay) {
-    loadingOverlay.classList.remove('active');
-  }
-}

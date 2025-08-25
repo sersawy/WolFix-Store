@@ -72,3 +72,14 @@ export function handelScrollUp() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+export async function handelShowLoading(time = 0.5) {
+  const loadingOverlay = document.getElementById('loadingOverlay');
+  if (loadingOverlay) {
+    loadingOverlay.classList.add('active');
+  }
+  await new Promise((resolve) => setTimeout(resolve, time * 1000));
+  if (loadingOverlay) {
+    loadingOverlay.classList.remove('active');
+  }
+}
