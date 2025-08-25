@@ -888,4 +888,570 @@ export const products = [
 
     newArrival: false,
   },
+  {
+    id: 15,
+    name: 'Home Decor Collection Gold Metal 5.91" Indoor Tabletop Taper Candleholder with Bow Accent',
+    brand: 'Home Decor Collection',
+    price: 9.54,
+    sale: 0,
+    image: './src/imgs/products/15/main.avif',
+    category: 'Home',
+    desc: `Taper Candle Holder Overall Dimensions: 5.91"x2.75"x2.75" Material: Iron, MDF, Felt Finish: Antique Gold Finish Felt Bottom Candle Accessory Tabletop Decor Bow Style Designed for Indoor Use Made in China.`,
+    thumbnails: ['./src/imgs/products/15/1.webp', './src/imgs/products/15/2.webp', './src/imgs/products/15/3.webp'],
+    rating: 2.7,
+    reviews: [
+      {
+        name: 'Laura Smith',
+        date: 'August 10, 2025',
+        rating: 2.5,
+        review: 'The design looks nice in pictures, but in reality it feels a bit cheap and lighter than expected.',
+      },
+      {
+        name: 'Anthony Johnson',
+        date: 'August 13, 2025',
+        rating: 2.8,
+        review: 'It works as a candleholder but the gold paint started fading after a few uses. Not very durable.',
+      },
+      {
+        name: 'Rachel Adams',
+        date: 'August 18, 2025',
+        rating: 3.0,
+        review: 'Decent for decoration but too small for my dining table. Would only recommend for side tables.',
+      },
+      {
+        name: 'Michael Lee',
+        date: 'August 21, 2025',
+        rating: 2.4,
+        review: 'The bow accent is cute but feels flimsy. For the price, I expected a sturdier build.',
+      },
+      {
+        name: 'Sophie Turner',
+        date: 'August 22, 2025',
+        rating: 2.9,
+        review: 'Okay for occasional decor, but doesn’t look as premium as advertised. Delivery was fine though.',
+      },
+    ],
+
+    tags: ['home decor', 'candleholder', 'gift', 'art deco', 'minimalist', 'indoor'],
+
+    metaItems: {
+      Material: 'Iron, Felt',
+      Color: 'Gold',
+      Dimensions: '2.75 x 2.75 x 5.91 Inches',
+      'Decor style': 'Art Deco, Minimalist',
+      Occasion: 'Any',
+      'Candle holder type': 'Sculpture Candle Holder',
+    },
+
+    specItems: {
+      Brand: 'Home Decor Collection',
+      Size: '5.9" H x 2.8" W',
+      'Assembled Product Weight': '0.5 lb',
+      'Manufacturer Part Number': '81344',
+      Color: 'Gold',
+      'Assembled Product Dimensions (L x W x H)': '2.75 x 2.75 x 5.91 Inches',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 16,
+    name: 'ionMug & Charging Coaster, 12oz. Stainless Steel Self Heating Coffee Mug with Lid, 3.5" x 3.5" x 5"',
+    brand: 'Tzumi',
+    price: 39.98,
+    sale: 0,
+    image: './src/imgs/products/16/main.avif',
+    category: 'Home',
+    desc: `Temperature Control: Choose from 3 adjustable temperature levels: 135 F, 140 F, or 145 F, with an LED indicator showing the desired level and heating completion. Long-Lasting Heat: Built-in rechargeable battery keeps beverages hot for up to 3 hours, or use the charging coaster to maintain heat all day. Auto Shut-Off: Automatically turns off after 3 hours or when no liquid is detected, ensuring safety and energy efficiency. Durable Materials: Made with 304 stainless steel and ABS material, the ion Mug is easy to clean under running water. Spill-Proof Lid: The anti-spill lid helps keep your hot beverage secure, preventing spills and accidents. Compact Design: Dimensions of 3.5" x 3.5" x 5" and a weight of 1 lb make it a convenient and portable option for hot beverages.`,
+    thumbnails: ['./src/imgs/products/16/1.webp', './src/imgs/products/16/2.webp', './src/imgs/products/16/3.webp'],
+    rating: 2.7,
+    reviews: [
+      {
+        name: 'John Peterson',
+        date: 'August 5, 2025',
+        rating: 2.5,
+        review: 'The mug looks nice but the battery doesn’t last long. Coffee only stayed warm for about 45 minutes.',
+      },
+      {
+        name: 'Laura Mitchell',
+        date: 'August 9, 2025',
+        rating: 2.8,
+        review:
+          'Good idea but not very practical. It shuts off too quickly and doesn’t always maintain the set temperature.',
+      },
+      {
+        name: 'Chris Evans',
+        date: 'August 14, 2025',
+        rating: 2.6,
+        review: 'Works okay for short periods, but for the price I expected better performance. The lid feels cheap.',
+      },
+      {
+        name: 'Angela Torres',
+        date: 'August 18, 2025',
+        rating: 2.9,
+        review: 'It does keep coffee warm but not hot enough. Charging base is slow and a bit bulky.',
+      },
+      {
+        name: 'David Kim',
+        date: 'August 21, 2025',
+        rating: 2.5,
+        review:
+          'Stopped working after a few weeks. Disappointed in durability, though customer service was responsive.',
+      },
+    ],
+
+    tags: ['mug', 'coffee', 'self-heating', 'kitchen', 'battery-powered', 'stainless-steel'],
+
+    metaItems: {
+      Brand: 'Tzumi',
+      Size: 'One Size',
+      Features: 'Automatic Shut-Off',
+      'Power type': 'Battery',
+      Condition: 'New',
+      'Maximum temperature': '145 ºF',
+    },
+
+    specItems: {
+      Features: 'Automatic Shut-Off',
+      Brand: 'Tzumi',
+      'Assembled Product Weight': '1 lb',
+      Manufacturer: 'ionMug',
+      'Manufacturer Part Number': '7560',
+      Material: 'Stainless Steel',
+      Color: 'Black',
+      Size: 'One Size',
+      'Assembled Product Dimensions (L x W x H)': '5.00 x 3.50 x 3.50 in',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 17,
+    name: 'Better Homes & Gardens Ivory Faux Fur Ultra Soft Luxury Oversize Throw Blanket 50" x 72", Vanilla Dream',
+    brand: 'Better Homes & Gardens',
+    price: 23.88,
+    sale: 0,
+    image: './src/imgs/products/17/main.webp',
+    category: 'Home',
+    desc: `Better Homes & Gardens Grey Bubble Faux Fur Throw for Adults and Teens Ultra-plush faux fur that adds warmth and charm to any space Measures 50" x 72" Shell Faux Fur: 100% Polyester Lining Micro Mink: 60% Recycled Polyester, 40% Polyester Gender: Unisex`,
+    thumbnails: ['./src/imgs/products/17/1.webp', './src/imgs/products/17/2.webp', './src/imgs/products/17/3.webp'],
+    rating: 1.8,
+    reviews: [
+      {
+        name: 'Sarah Mitchell',
+        date: 'August 12, 2025',
+        rating: 2.0,
+        review:
+          'The blanket looks soft in pictures, but in reality it sheds a lot of fur. Disappointed with the quality.',
+      },
+      {
+        name: 'John Roberts',
+        date: 'August 14, 2025',
+        rating: 1.5,
+        review: 'Way too heavy and not as cozy as I expected. The fabric feels cheap and not breathable.',
+      },
+      {
+        name: 'Emily Carter',
+        date: 'August 16, 2025',
+        rating: 1.9,
+        review:
+          'It looks nice as a decorative throw, but for actual use it is uncomfortable and makes me overheat quickly.',
+      },
+      {
+        name: 'Daniel Kim',
+        date: 'August 18, 2025',
+        rating: 1.6,
+        review: 'Started pilling after just a week of use. Definitely not worth the price for the quality received.',
+      },
+      {
+        name: 'Olivia Brown',
+        date: 'August 20, 2025',
+        rating: 1.7,
+        review: 'Color is not as described. Feels rough on the skin. Would not recommend for daily use.',
+      },
+      {
+        name: 'James Miller',
+        date: 'August 22, 2025',
+        rating: 1.5,
+        review: 'Arrived with a strong chemical smell that didn’t go away even after washing. Very disappointed.',
+      },
+    ],
+
+    tags: ['blanket', 'home', 'decor', 'comfort', 'faux fur', 'luxury', 'oversize'],
+
+    metaItems: {
+      Brand: 'Better Homes & Gardens',
+      Size: '50" x 72"',
+      Color: 'Vanilla Dream',
+      Weight: '4.01 lb',
+      Pattern: 'Solid Print',
+      'Decor style': 'Contemporary, Modern, Farmhouse, French Country',
+    },
+
+    specItems: {
+      Features: 'Reversible',
+      Brand: 'Better Homes & Gardens',
+      'Fabric Content': '100% Polyester, 60% Recycled Polyester, 40% Polyester',
+      Size: '50" x 72"',
+      'Assembled Product Weight': '4.01 lb',
+      Color: 'Vanilla Dream',
+      Gender: 'Unisex',
+      'Manufacturer Part Number': 'BH4510180672203',
+      'Assembled Product Dimensions (L x W x H)': '18.00 x 10.63 x 4.60 in',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 18,
+    name: 'Lulu Candles | Jasmine, Oud & Sandalwood | Luxury Scented Soy Wax Blend | Hand Poured in the USA | Highly Scented Candles for Home Fragrance & Decor (9 oz.)',
+    brand: 'Lulu Candles',
+    price: 19.95,
+    sale: 0,
+    image: './src/imgs/products/18/main.webp',
+    category: 'Home',
+    desc: `Premium Fragrance: Lulu Candles are made with a unique blend of premium essential oil fragrances for a memorable and long-lasting scent experience. Clean-Burning Wax: Crafted with a nontoxic, paraben-free proprietary soy-blend wax formulation, ensuring a longer-lasting burn. 100% Cotton Wicks: Each candle features 100% cotton wicks, providing a clean and long-burning performance. Hand-Poured in USA: All Lulu Candles are hand-poured in the USA, supporting over 50 families. Captivating Scent: The Jasmine, Oud & Sandalwood scent combines floral, woody, and smokey notes to fill your home with a stunning aroma. Thoughtful Gift: This 9 Oz. jar candle is a perfect addition to your home or a thoughtful gift for any occasion.`,
+    thumbnails: ['./src/imgs/products/18/1.webp', './src/imgs/products/18/2.webp', './src/imgs/products/18/3.webp'],
+    rating: 3.8,
+    reviews: [
+      {
+        name: 'Rachel Green',
+        date: 'August 12, 2025',
+        rating: 3.9,
+        review: 'The scent is nice but a bit strong for my small living room. Burns evenly though.',
+      },
+      {
+        name: 'Tom Harris',
+        date: 'August 15, 2025',
+        rating: 3.7,
+        review: 'Good packaging and looks premium, but the scent doesn’t last as long as expected.',
+      },
+      {
+        name: 'Linda Perez',
+        date: 'August 19, 2025',
+        rating: 3.8,
+        review: 'Beautiful jar design. The candle burns well, but the fragrance could be stronger.',
+      },
+      {
+        name: 'Chris Johnson',
+        date: 'August 21, 2025',
+        rating: 3.6,
+        review: 'It’s decent for the price, but I found other candles with more noticeable aroma.',
+      },
+      {
+        name: 'Sophia Lee',
+        date: 'August 22, 2025',
+        rating: 3.9,
+        review: 'Nice mix of jasmine and sandalwood, relaxing vibe but doesn’t fill large rooms fully.',
+      },
+    ],
+
+    tags: ['candle', 'home-decor', 'scented', 'soy-wax', 'luxury', 'relaxation'],
+
+    metaItems: {
+      Brand: 'LULU CANDLES',
+      Color: 'Black',
+      Scent: 'Jasmine, Oud & Sandalwood',
+      Condition: 'New',
+      Season: 'All-Season',
+      'Retail packaging': 'Single Piece',
+    },
+
+    specItems: {
+      Features: 'Scented',
+      Brand: 'LULU CANDLES',
+      'Candle Type': 'Container Candles',
+      'Candle Wax Type': 'Soy Blend Wax',
+      'Candle Wick Type': 'Cotton Wicks',
+      'Number of Wicks': '1',
+      Color: 'Black',
+      'Color Category': 'Black',
+      'Is Scented': 'Y',
+      Scent: 'Jasmine, Oud & Sandalwood',
+      'Scent Family': 'Floral, Woody & Earthy, Warm & Spicy',
+      Shape: 'Jar',
+      Manufacturer: 'Lulu Candles',
+      'Manufacturer Part Number': 'JasmineOudSandalwood14',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 19,
+    name: 'Better Homes & Gardens Violet Bubble Faux Fur Ultra Soft Luxury Oversize Throw Blanket 50" x 72", Violet Gem',
+    brand: 'Better Homes & Gardens',
+    price: 23.88,
+    sale: 0,
+    image: './src/imgs/products/19/main.jpeg',
+    category: 'Home',
+    desc: `Better Homes & Gardens Violet Bubble Faux Fur Throw for Adults and Teens Ultra-plush faux fur that adds warmth and charm to any space Measures 50" x 72" Shell Faux Fur: 100% Polyester Lining Micro Mink: 60% Recycled Polyester, 40% Polyester Unisex.`,
+    thumbnails: ['./src/imgs/products/19/1.jpeg', './src/imgs/products/19/2.jpeg', './src/imgs/products/19/3.webp'],
+    rating: 0.8,
+    reviews: [
+      {
+        name: 'Sarah Thompson',
+        date: 'August 5, 2025',
+        rating: 1.0,
+        review: 'The blanket looks nice in pictures but sheds a lot. After one wash it lost the soft texture.',
+      },
+      {
+        name: 'Mark Johnson',
+        date: 'August 8, 2025',
+        rating: 0.7,
+        review: 'Not as oversized as advertised. Feels cheap compared to other faux fur blankets I’ve owned.',
+      },
+      {
+        name: 'Emily Brown',
+        date: 'August 12, 2025',
+        rating: 0.5,
+        review: 'Very disappointed. The fabric irritated my skin and the quality is poor for the price.',
+      },
+      {
+        name: 'David Wilson',
+        date: 'August 15, 2025',
+        rating: 0.9,
+        review: 'Decent color but far from luxury. Gets matted quickly and doesn’t feel ultra-soft at all.',
+      },
+      {
+        name: 'Jessica Lee',
+        date: 'August 20, 2025',
+        rating: 0.6,
+        review: 'Wanted this for my living room decor but it looks cheap and not as plush as shown in the photos.',
+      },
+    ],
+
+    tags: ['blanket', 'home', 'decor', 'luxury', 'faux-fur', 'oversize', 'soft', 'violet'],
+
+    metaItems: {
+      Brand: 'Better Homes & Gardens',
+      Size: '50" x 72"',
+      Color: 'Violet Gem',
+      Weight: '3.89 lb',
+      Pattern: 'Bubble Texture',
+      'Decor style': 'Contemporary, Modern, Farmhouse, French Country',
+    },
+
+    specItems: {
+      Features: 'Reversible',
+      Brand: 'Better Homes & Gardens',
+      'Fabric Content': '100% Polyester, 60% Recycled Polyester, 40% Polyester',
+      Size: '50" x 72"',
+      'Assembled Product Weight': '3.89 lb',
+      Color: 'Violet Gem',
+      Gender: 'Female',
+      'Manufacturer Part Number': 'BH4510180672202',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 20,
+    name: 'Character Toddler One-Piece Viscose Sleeper, Sizes 12M-5T',
+    brand: 'Bluey',
+    price: 22.99,
+    sale: 0,
+    image: './src/imgs/products/20/main.webp',
+    category: 'Home',
+    desc: `Soft Viscose Material: Made from 100% viscose, ensuring a soft and comfortable feel for your toddler. Easy Care: Machine washable for convenient cleaning and maintenance. Imported Quality: This product is imported, ensuring a high standard of craftsmanship. Relaxed Fit: Designed with a relaxed fit for maximum comfort during sleep. Convenient Zip Closure: Features a zip front closure for easy dressing and undressing. Long Sleeves: Equipped with long sleeves to keep your child warm during chilly nights. Vibrant Allover Print: Adorned with a colorful print featuring Bluey and her sister Bingo, perfect for fans of the show. Bluey Theme: This one-piece sleeper is themed around the popular character Bluey, making bedtime fun and exciting.`,
+    thumbnails: ['./src/imgs/products/20/1.webp', './src/imgs/products/20/2.webp', './src/imgs/products/20/3.webp'],
+    rating: 4.3,
+    reviews: [
+      {
+        name: 'Sarah Thompson',
+        date: 'August 10, 2025',
+        rating: 4.5,
+        review: 'Super soft and breathable fabric, my toddler loves it. Perfect for bedtime and easy to wash.',
+      },
+      {
+        name: 'Mark Johnson',
+        date: 'August 13, 2025',
+        rating: 4.2,
+        review:
+          'Great quality sleeper with a cute Bluey design. The zipper makes changing quick, though I wish it had a double zipper.',
+      },
+      {
+        name: 'Emily Davis',
+        date: 'August 16, 2025',
+        rating: 4.0,
+        review:
+          'My daughter adores this sleeper, it fits nicely. A bit thin for colder nights, but great with an extra blanket.',
+      },
+      {
+        name: 'Jessica Lee',
+        date: 'August 19, 2025',
+        rating: 4.4,
+        review:
+          'The design is adorable and the viscose material feels smooth. Sizing runs slightly small, so I recommend sizing up.',
+      },
+      {
+        name: 'Daniel Perez',
+        date: 'August 22, 2025',
+        rating: 4.3,
+        review:
+          'Bought this for my nephew and he wears it almost every night. Lightweight and comfy, excellent for toddlers.',
+      },
+    ],
+
+    tags: ['toddler', 'sleepwear', 'bluey', 'viscose', 'unisex', 'comfort'],
+
+    metaItems: {
+      Brand: 'Bluey',
+      'Clothing size': '3T',
+      'Age group': 'Toddler',
+      Color: 'Bluey',
+      'Clothing style': 'Sleepwear',
+      'Fabric content': '100% Viscose',
+    },
+
+    specItems: {
+      Brand: 'Bluey',
+      'Country of Origin - Textiles': 'Imported',
+      'Clothing Size': '3T',
+      Size: '3T',
+      Gender: 'Unisex',
+      Color: 'Bluey',
+      Character: 'Bluey',
+      'Sleeve Length Style': 'Long Sleeve',
+      'Clothing Neck Style': 'Crew Neck',
+      'Fabric Content': '100% Viscose',
+      'Fastener Type': 'Zipper',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 21,
+    name: 'Character Toddler Snug Fit Two-Piece Sleep Set, Sizes 12M-5T',
+    brand: 'Bluey',
+    price: 13.95,
+    sale: 0,
+    image: './src/imgs/products/21/main.webp',
+    category: 'Home',
+    desc: `This Character Toddler Snug Fit Two-Piece Sleep Set is designed for comfort and style.  Made from soft cotton fabric , it features a short sleeve top and matching pull-on pants with allover Bluey inspired prints. The  snug fit design  ensures a cozy fit, perfect for lounging and bedtime. The set is  machine washable , making it easy to care for.  Available in sizes 12M-5T , this sleep set is ideal for toddlers who love Bluey. With its comfortable and adorable design, it's perfect for everyday wear.`,
+    thumbnails: ['./src/imgs/products/21/1.webp', './src/imgs/products/21/2.webp'],
+    rating: 3.7,
+    reviews: [
+      {
+        name: 'Sarah Thompson',
+        date: 'August 5, 2025',
+        rating: 3.5,
+        review:
+          'Cute design and my toddler loves Bluey, but the fabric feels a little thinner than I expected. Good for summer though.',
+      },
+      {
+        name: 'Alex Johnson',
+        date: 'August 9, 2025',
+        rating: 3.8,
+        review: 'Fits well and very soft. The colors faded a bit after a few washes, which was disappointing.',
+      },
+      {
+        name: 'Maria Lopez',
+        date: 'August 14, 2025',
+        rating: 3.6,
+        review: 'Adorable pajamas, but the sizing runs slightly small. I recommend buying one size up.',
+      },
+      {
+        name: 'David Carter',
+        date: 'August 20, 2025',
+        rating: 3.9,
+        review: 'My kid loves the character print, but I wish the stitching was stronger. Still okay for the price.',
+      },
+      {
+        name: 'Emily White',
+        date: 'August 22, 2025',
+        rating: 3.5,
+        review: 'Great for bedtime comfort, but the fabric wrinkles quickly after washing. Could be better quality.',
+      },
+    ],
+
+    tags: ['toddler', 'sleepwear', 'cotton', 'kids clothing', 'bluey', 'pajamas'],
+
+    metaItems: {
+      Brand: 'Bluey',
+      'Clothing size': '2T',
+      'Age group': 'Toddler',
+      Color: 'Blue Bluey',
+      'Clothing style': 'Sleepwear',
+      'Fabric content': '100% Cotton',
+    },
+
+    specItems: {
+      Brand: 'Bluey',
+      'Country of Origin - Textiles': 'USA and Imported',
+      'Clothing Size': '2T',
+      Size: '2T',
+      Gender: 'Unisex',
+      Color: 'Blue Bluey',
+      Character: 'Bluey',
+      'Sleeve Length Style': 'Short Sleeve',
+      'Clothing Neck Style': 'Crew Neck',
+      'Fabric Content': '100% Cotton',
+      'Fastener Type': 'Pull-On',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 22,
+    name: `George Men's and Big Men's Quilted Snap Pullover Jacket, Sizes S-3XL`,
+    brand: 'George',
+    price: 22.99,
+    sale: 0,
+    image: './src/imgs/products/22/main.webp',
+    category: 'Clothing',
+    desc: `55% Polyester/45% Cotton Machine washable Imported Model is approx. 6'1" and wearing a size M Relaxed Fit Stand collar Pullover style; 4 snap button placket Long Sleeve Soft, double-face fleece; quilted design; ribbed cuffs and hem; solid color Quilted Snap Pullover Jacket for Men and Big Men from George.`,
+    thumbnails: ['./src/imgs/products/22/1.webp', './src/imgs/products/22/2.webp', './src/imgs/products/22/3.webp'],
+    rating: 4.2,
+    reviews: [
+      {
+        name: 'Daniel Roberts',
+        date: 'August 12, 2025',
+        rating: 4.3,
+        review:
+          'Good quality jacket for the price. Keeps me warm during cool evenings, though not ideal for heavy winter.',
+      },
+      {
+        name: 'Marcus Green',
+        date: 'August 15, 2025',
+        rating: 4.0,
+        review: 'Nice fit and stylish look. Buttons are a bit stiff at first but get easier with use.',
+      },
+      {
+        name: 'Jacob Smith',
+        date: 'August 18, 2025',
+        rating: 4.1,
+        review: 'Lightweight but still provides enough warmth. Works well for layering over a hoodie.',
+      },
+      {
+        name: 'Anthony Clark',
+        date: 'August 20, 2025',
+        rating: 4.4,
+        review: 'Really like the color and design. Fits true to size. Would recommend for casual wear.',
+      },
+      {
+        name: 'Liam Johnson',
+        date: 'August 22, 2025',
+        rating: 4.2,
+        review: 'Comfortable jacket, looks great with jeans. Wish it had more pockets though.',
+      },
+    ],
+
+    tags: ['jacket', 'clothing', 'winter', 'casual', 'activewear', 'men'],
+
+    metaItems: {
+      Brand: 'George',
+      'Clothing size': 'M',
+      Color: 'Rusty Nail',
+      'Age group': 'Adult',
+      'Clothing style': 'Activewear',
+      'Fastener type': 'Button',
+    },
+
+    specItems: {
+      Brand: 'George',
+      'Assembled Product Dimensions (L x W x H)': '28.00 x 20.00 x 1.00 in',
+    },
+
+    newArrival: false,
+  },
 ];
