@@ -133,11 +133,6 @@ export function renderDetails(product, relatedProducts) {
     .join('');
   document.querySelector('.reviews-container').innerHTML = product.reviews.map(generateReviewTemplate).join('');
   document.querySelector('.related-products').innerHTML = relatedProducts.map(generateRelatedProductTemplate).join('');
-  // productsContainer.innerHTML = '';
-  // products.forEach((product) => {
-  //   const template = generateTemplate(product);
-  //   productsContainer.insertAdjacentHTML('beforeend', template);
-  // });
 }
 
 function getPriceDetails(product) {
@@ -180,11 +175,39 @@ function generateReviewTemplate(review) {
         </div>`;
 }
 function generateRelatedProductTemplate(product) {
-  return `<a class="text-reset text-decoration-none" href="product.html?id=${product.id}"><div class="related-product">
-            <img src="${product.image}" alt="${product.name}" class="related-product-image" />
-            <div class="related-product-info">
-              <div class="related-product-title">${product.name}</div>
-              <div class="related-product-price">$${((product.price * (100 - product.sale)) / 100).toFixed(2)}</div>
-            </div>
-          </div></a>`;
+  const priceDetails = getPriceDetails(product);
+
+  const discount = priceDetails.sale ? `${priceDetails.sale}% OFF` : '';
+  const currentPrice = `$${priceDetails.currentPrice}`;
+  const originalPrice = priceDetails.currentPrice == priceDetails.originalPrice ? '' : `$${priceDetails.originalPrice}`;
+
+  return `<a class="text-reset text-decoration-none" href="product.html?id=${
+    product.id
+  }"><div class="product-card related-product border-0 card h-100">
+        <div class="product-image">
+          <img src="${product.image}" class="card-img-top" alt="${product.name}">
+          ${product.sale ? '<span class="product-badge">Sale</span>' : ''}
+            ${
+              product.newArrival
+                ? '<span class="product-badge" style="background: var(--success-color);">New</span>'
+                : ''
+            }
+        </div>
+        <div class="card-body d-flex flex-column">
+          <div class="product-meta">
+            <span class="product-category">${product.category}</span>
+            <span class="product-brand">${product.brand}</span>
+          </div>
+          <h3 class="product-title">${product.name}</h3>
+          <div class="product-rating">
+            <span class="rating-stars">${generateStars(product.rating)}</span>
+            <span class="rating-value">${product.rating}</span>
+          </div>
+          <div class="product-price">
+            <span>${currentPrice}</span>
+            <span class="original-current-price">${originalPrice}</span>
+            <span class="discount-badge">${discount}</span>
+          </div>
+        </div>
+      </div></a>`;
 }

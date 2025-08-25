@@ -2896,6 +2896,7 @@ textarea:focus {
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: all var(--transition-normal);
+  height: 100%;
 }
 
 .related-product:hover {
