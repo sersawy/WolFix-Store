@@ -198,4 +198,50 @@ export function initProductDetails() {
   productView.renderDetails(product, [...relatedProducts].sort(() => Math.random() - 0.5).slice(0, 8));
   cartController.init();
   document.querySelector('.product-info').addEventListener('click', handelAddToCart);
+  handelSeeMoreBtn();
+  handelChangeQuantity();
+  handelProductSlider();
+}
+
+function handelSeeMoreBtn() {
+  const desc = document.querySelector('.product-description');
+  const btn = document.querySelector('.see-more-btn');
+
+  btn.addEventListener('click', () => {
+    desc.classList.toggle('expanded');
+    btn.textContent = desc.classList.contains('expanded') ? 'See less' : 'See more';
+  });
+}
+
+function handelChangeQuantity() {
+  const decreaseBtn = document.getElementById('decreaseQty');
+  const increaseBtn = document.getElementById('increaseQty');
+  const quantityInput = document.getElementById('productQty');
+
+  decreaseBtn.addEventListener('click', () => {
+    if (quantityInput.value > 1) {
+      quantityInput.value = parseInt(quantityInput.value) - 1;
+    }
+  });
+
+  increaseBtn.addEventListener('click', () => {
+    if (quantityInput.value < 8) {
+      quantityInput.value = parseInt(quantityInput.value) + 1;
+    }
+  });
+}
+
+function handelProductSlider() {
+  const mainImage = document.querySelector('.product-main-image');
+  const thumbnailsContainer = document.querySelector('.product-thumbnails');
+  thumbnailsContainer.addEventListener('click', function (e) {
+    const thumbnail = e.target.closest('.product-thumbnail');
+    if (!thumbnail) return;
+    mainImage.src = thumbnail.src;
+    mainImage.alt = thumbnail.alt;
+    document.querySelectorAll('.active').forEach((e) => {
+      e.classList.remove('active');
+    });
+    thumbnail.classList.add('active');
+  });
 }
