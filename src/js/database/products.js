@@ -1395,7 +1395,7 @@ export const products = [
     id: 22,
     name: `George Men's and Big Men's Quilted Snap Pullover Jacket, Sizes S-3XL`,
     brand: 'George',
-    price: 22.99,
+    price: 18.98,
     sale: 0,
     image: './src/imgs/products/22/main.webp',
     category: 'Clothing',
@@ -1450,6 +1450,135 @@ export const products = [
     specItems: {
       Brand: 'George',
       'Assembled Product Dimensions (L x W x H)': '28.00 x 20.00 x 1.00 in',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 23,
+    name: `George Men's Slim Chino Pants`,
+    brand: 'George',
+    price: 19.98,
+    sale: 0,
+    image: './src/imgs/products/23/main.webp',
+    category: 'Clothing',
+    desc: `Comfortable Material: Made from 97% cotton and 3% spandex for a soft and stretchy feel. Easy Care: These pants are machine washable for convenient cleaning. Imported Quality: Crafted with care and imported for reliable quality. Slim Fit Design: Features a slim fit at the leg and seat for a modern look. Mid-Rise Waist: Designed with a mid-rise waist for a comfortable fit. Secure Closure: Equipped with a button closure and zip fly for secure fastening. Ample Storage: Includes 5 pockets to hold your essentials. Versatile Features: Comes with belt loops for added functionality.`,
+    thumbnails: ['./src/imgs/products/23/1.jpeg', './src/imgs/products/23/2.jpeg', './src/imgs/products/23/3.webp'],
+    rating: 3.6,
+    reviews: [
+      {
+        name: 'Liam Johnson',
+        date: 'August 10, 2025',
+        rating: 3.5,
+        review: 'The pants are stylish, but the fit was a bit tighter than expected. Fabric feels good, though.',
+      },
+      {
+        name: 'Ethan Brown',
+        date: 'August 14, 2025',
+        rating: 3.2,
+        review: 'Color is nice but stitching started coming loose after a few washes. Decent for casual wear.',
+      },
+      {
+        name: 'Noah Smith',
+        date: 'August 18, 2025',
+        rating: 3.8,
+        review: 'Comfortable for daily wear but the length was slightly shorter than indicated. Otherwise okay.',
+      },
+      {
+        name: 'Mason Davis',
+        date: 'August 22, 2025',
+        rating: 3.6,
+        review: 'Good stretch and pockets are useful. Not the best quality fabric compared to other brands.',
+      },
+    ],
+
+    tags: ['clothing', 'men', 'pants', 'slim fit', 'casual', 'fashion', 'cotton', 'stretch'],
+
+    metaItems: {
+      'Clothing size': '40X32',
+      Brand: 'George',
+      Color: 'Blue Cove',
+      'Age group': 'Adult',
+      'Clothing size group': 'Men',
+      'Pant leg cut': 'Slim Straight',
+    },
+
+    specItems: {
+      Features: 'Pockets, Stretch, Side Pocket',
+      'Country of Origin - Textiles': 'Imported',
+      'Clothing Size': '40X32',
+      'Assembled Product Weight': '1 lb',
+      'Fabric Content': '97% Cotton, 3% Spandex',
+      Gender: 'Male',
+      Brand: 'George',
+      Model: 'GM08467',
+      Color: 'Blue Cove',
+      'Assembled Product Dimensions (L x W x H)': '6.00 x 6.00 x 1.00 in',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 24,
+    name: `Chaps Men's and Big Men's Seacoast Wash Long Sleeve Oxford Woven Shirt, Sizes S-3XL`,
+    brand: 'George',
+    price: 23,
+    sale: 0,
+    image: './src/imgs/products/24/main.webp',
+    category: 'Clothing',
+    desc: `Comfortable Material: Made from 97% cotton and 3% spandex for a soft and stretchy feel. Easy Care: These pants are machine washable for convenient cleaning. Imported Quality: Crafted with care and imported for reliable quality. Slim Fit Design: Features a slim fit at the leg and seat for a modern look. Mid-Rise Waist: Designed with a mid-rise waist for a comfortable fit. Secure Closure: Equipped with a button closure and zip fly for secure fastening. Ample Storage: Includes 5 pockets to hold your essentials. Versatile Features: Comes with belt loops for added functionality.`,
+    thumbnails: ['./src/imgs/products/24/1.webp', './src/imgs/products/24/2.webp', './src/imgs/products/24/3.jpeg'],
+    rating: 1.8,
+    reviews: [
+      {
+        name: 'John Smith',
+        date: 'August 10, 2025',
+        rating: 1.5,
+        review:
+          'The shirt shrank badly after the first wash. Color faded quickly and overall quality is disappointing.',
+      },
+      {
+        name: 'Alex Johnson',
+        date: 'August 14, 2025',
+        rating: 2.0,
+        review: 'Material feels cheap for the price. Fit is weird, especially around the shoulders.',
+      },
+      {
+        name: 'Michael Brown',
+        date: 'August 18, 2025',
+        rating: 1.8,
+        review: 'Not happy with this purchase. Buttons started loosening after a week, and the stitching seems weak.',
+      },
+      {
+        name: 'David Lee',
+        date: 'August 21, 2025',
+        rating: 1.7,
+        review: 'Color and sizing are not accurate. I expected better quality from Chaps brand.',
+      },
+      {
+        name: 'Chris Evans',
+        date: 'August 23, 2025',
+        rating: 1.9,
+        review: 'Fabric is rough and uncomfortable on the skin. Not suitable for casual wear as advertised.',
+      },
+    ],
+
+    tags: ['mens-shirt', 'casual', 'long-sleeve', 'cotton', 'fashion', 'apparel', 'men'],
+
+    metaItems: {
+      Brand: 'Chaps',
+      'Age group': 'Adult',
+      'Clothing size group': 'Men',
+      Color: 'Green',
+      'Clothing style': 'Casual',
+      'Top style': 'Guide',
+    },
+
+    specItems: {
+      Gender: 'Male',
+      'Fabric Content': '100% Cotton',
+      Brand: 'Chaps',
+      Model: 'CM35LW290W',
     },
 
     newArrival: false,
