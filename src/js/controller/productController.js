@@ -186,6 +186,7 @@ function handelMobileFilter() {
 export function initProductDetails() {
   const id = new URLSearchParams(location.search).get('id');
   const product = productModel.getProduct(+id);
+  if (!product) return (location.href = '404.html');
   const relatedProducts = filterController.filterProducts(productModel.getAllProducts(), {
     category: [product.category],
   });
