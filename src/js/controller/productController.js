@@ -30,13 +30,9 @@ export function handelAllListener() {
   document.getElementById('productsContainer').addEventListener('click', handelAddToCart);
 }
 
-async function handelClickFilter(category) {
+async function handelClickFilter() {
   await handelShowLoading();
   const filter = filterController.getFilterData();
-  if (category) {
-    filter.category = [category];
-    document.querySelector(`input[value = "${category}"]`).checked = true;
-  }
   productModel.setFilter(filter);
   const allProducts = productModel.getAllProducts();
 

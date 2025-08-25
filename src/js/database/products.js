@@ -6,6 +6,8 @@ export const products = [
     price: 249,
     sale: 30,
     image: './src/imgs/products/1/main.webp',
+    sliderImage:
+      'https://images.unsplash.com/photo-1755127761410-0c00c398c308?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'Electronics',
     desc: "A great deal to love. Affordable. Capable. Totally loveable. Heavy on features. Light on price. All-new features. Still light on price. Essential features to help you stay connected, active, healthy, and safe. Perfect for kids and older adults using Family Setup. Apple Watch SE 2024 2nd Generation. It's the ultimate device for a healthy life. Stay connected on the go, go, go. Crash detection, a safety feature we hope you'll never need.",
     thumbnails: ['./src/imgs/products/1/1.webp', './src/imgs/products/1/2.webp', './src/imgs/products/1/3.webp'],
@@ -613,6 +615,275 @@ export const products = [
       Brand: 'Wagpak',
       Manufacturer: 'Wagpak',
       Features: 'Ergonomic, Rechargeable',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 11,
+    name: 'Better Homes & Gardens Faux Mohair Cozy Couch Throw Blanket Terracotta Clay, 50x72"',
+    brand: 'Better Homes & Gardens',
+    price: 22.24,
+    sale: 0,
+    image: './src/imgs/products/11/main.jpeg',
+    category: 'Home',
+    desc: `50x72" Throw Made from 50% Polyester with 50% Recycled Polyester Oeko-Tex Certified Easy to follow care instructions.`,
+    thumbnails: ['./src/imgs/products/11/1.webp', './src/imgs/products/11/2.jpeg', './src/imgs/products/11/3.webp'],
+    rating: 4.7,
+    reviews: [
+      {
+        name: 'Sarah Thompson',
+        date: 'August 9, 2025',
+        rating: 4.8,
+        review: 'So soft and cozy! Perfect for snuggling on the couch. The terracotta color is warm and beautiful.',
+      },
+      {
+        name: 'Mark Rivera',
+        date: 'August 15, 2025',
+        rating: 4.6,
+        review: 'Lightweight but still keeps you warm. Adds a nice touch to my living room decor.',
+      },
+      {
+        name: 'Hannah Wilson',
+        date: 'August 20, 2025',
+        rating: 4.7,
+        review: 'Great quality for the price. The size is just right for a couch throw, and it feels very soft.',
+      },
+    ],
+
+    tags: ['home', 'decor', 'blanket'],
+
+    metaItems: {
+      Brand: 'Better Homes & Gardens',
+      Size: '50" x 72"',
+      Color: 'Terracotta Clay',
+      Weight: '2 lb',
+      Pattern: 'Terracotta Clay',
+      'Decor style': 'Contemporary',
+    },
+
+    specItems: {
+      Brand: 'Better Homes & Gardens',
+      'Fabric Content': '100% Polyester',
+      Size: '50" x 72"',
+      'Assembled Product Weight': '2 lb',
+      Color: 'Terracotta Clay',
+      Gender: 'Unisex',
+      Manufacturer: 'Standard Fiber LLC',
+      'Manufacturer Part Number': 'BH4536185817853',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 12,
+    name: 'Better Homes & Gardens Greyson 3-Drawer Nightstand with USB, Acorn Finish',
+    brand: 'Better Homes & Gardens',
+    price: 178,
+    sale: 0,
+    image: './src/imgs/products/12/main.jpeg',
+    sliderImage: './src/imgs/products/12/slider.webp',
+    category: 'Home',
+    desc: `Assembled Dimensions: L: 30.00" x W: 18.98" x H: 32.36" Spacious drawers feature metal runners and safety stops Lower drawer is extra deep Interlocking safety mechanism allows only one drawer open at a time on each side Tip restraint safety strap included Solid wood feet Acorn finish Model #: 441420 Box Dimensions: L: 37.99" x W: 21.73" x H: 11.73" For additional questions or any issues, please contact the manufacturer at 1-800-523-3987. Be sure to check out the Better Homes & Garden collection for more great items!`,
+    thumbnails: ['./src/imgs/products/12/1.jpeg', './src/imgs/products/12/2.webp', './src/imgs/products/12/3.jpeg'],
+    rating: 3.7,
+    reviews: [
+      {
+        name: 'Laura Smith',
+        date: 'August 12, 2025',
+        rating: 3.9,
+        review:
+          'Looks beautiful in my bedroom and the Acorn finish is warm. Assembly took longer than expected but the drawers slide smoothly.',
+      },
+      {
+        name: 'Kevin Johnson',
+        date: 'August 15, 2025',
+        rating: 3.5,
+        review:
+          'The design is nice, but the material feels cheaper than I thought. It does the job but I expected sturdier wood.',
+      },
+      {
+        name: 'Rachel Green',
+        date: 'August 18, 2025',
+        rating: 3.8,
+        review:
+          'USB port is very convenient for charging at night. A bit heavy to move around, but solid once assembled.',
+      },
+      {
+        name: 'Mark Thompson',
+        date: 'August 20, 2025',
+        rating: 3.4,
+        review:
+          'Assembly was frustrating with unclear instructions. Once built, it looks good but I noticed some scratches on the surface.',
+      },
+      {
+        name: 'Sophia Lee',
+        date: 'August 22, 2025',
+        rating: 3.7,
+        review:
+          'Overall okay. Stylish design and fits the decor, but I wish the drawers were a little deeper for storage.',
+      },
+    ],
+
+    tags: ['furniture', 'nightstand', 'wood'],
+
+    metaItems: {
+      Brand: 'Better Homes & Gardens',
+      Color: 'Acorn',
+      Material: 'Wood Composite',
+      Dimensions: '18.98 x 32.36 x 32.36 in',
+      'Assembly req': 'Y',
+      'Decor style': 'Mid-Century, Modern',
+    },
+
+    specItems: {
+      Brand: 'Better Homes & Gardens',
+      Collection: 'Greyson',
+      Material: 'Wood Composite',
+      Color: 'Acorn',
+      Finish: 'Acorn',
+      'Number of Drawers': 3,
+      'Assembled Product Weight': '107.8 lb',
+      'Manufacturer Part Number': '441420',
+      'Assembled Product Dimensions (L x W x H)': '18.98 x 32.36 x 32.36 in',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 13,
+    name: 'Better Homes & Gardens 20" x 20" Luxe Flange Polyester Decorative Pillow',
+    brand: 'Better Homes & Gardens',
+    price: 18.88,
+    sale: 0,
+    image: './src/imgs/products/13/main.jpeg',
+    category: 'Home',
+    desc: `Elegant Flange Edging – Adds a refined, tailored appearance for upscale decor Premium Ultra-Soft Fabric – Offers a luxurious feel with plush comfort Versatile Statement Piece – Enhances both modern and traditional interior styles Generously Sized for Impact – Provides a fuller, more decorative presence on furniture Machine Washable for Convenience – Easy-care fabric ensures long-lasting beauty Suitable for all age groups – perfect for teens, adults, and seniors`,
+    thumbnails: ['./src/imgs/products/13/1.jpeg', './src/imgs/products/13/2.webp', './src/imgs/products/13/3.webp'],
+    rating: 3.7,
+    reviews: [
+      {
+        name: 'Sarah Mitchell',
+        date: 'August 10, 2025',
+        rating: 3.8,
+        review:
+          'The pillow looks stylish and fits well with my modern living room decor. A bit firmer than expected though.',
+      },
+      {
+        name: 'Kevin Parker',
+        date: 'August 14, 2025',
+        rating: 3.6,
+        review: 'Color is beautiful and matches the pictures. Comfort could be better for long use.',
+      },
+      {
+        name: 'Lily Thompson',
+        date: 'August 17, 2025',
+        rating: 3.7,
+        review: 'Good size and the zip closure is handy. It feels slightly heavy compared to other decorative pillows.',
+      },
+      {
+        name: 'Marcus Allen',
+        date: 'August 20, 2025',
+        rating: 3.5,
+        review:
+          'Nice quality overall but the fill feels a little lumpy. Works more as a decorative piece than for comfort.',
+      },
+      {
+        name: 'Emily Clark',
+        date: 'August 23, 2025',
+        rating: 3.9,
+        review: 'Looks premium and the reversible feature is great. Would have loved it to be softer.',
+      },
+    ],
+
+    tags: ['home', 'decor', 'pillow', 'comfort', 'living room', 'modern'],
+
+    metaItems: {
+      Brand: 'Better Homes & Gardens',
+      Color: 'Terracotta',
+      Size: '20 x 20',
+      'Decor style': 'Modern',
+      Shape: 'Square',
+      'Fill material': 'Recycled Polyester',
+    },
+
+    specItems: {
+      Features: 'Zip Closure, Reversible, Breathable',
+      'Age Group': 'Adult',
+      'Recommended Room': 'Indoor',
+      Size: '20 x 20',
+      'Assembled Product Weight': '1.94 lb',
+      Brand: 'Better Homes & Gardens',
+      Model: 'BH3500690717067',
+      Color: 'Terracotta',
+    },
+
+    newArrival: false,
+  },
+  {
+    id: 14,
+    name: 'Better Homes & Gardens Amber Glass Ribbed Hurricane Candleholder, 5", Medium',
+    brand: 'Better Homes & Gardens',
+    price: 8.22,
+    sale: 0,
+    image: './src/imgs/products/14/main.avif',
+    category: 'Home',
+    desc: `Premium Material: Made from thick, premium grade durable glass for long-lasting use. Hand Wash Only: Easy to clean by hand washing; not dishwasher safe. Imported Quality: Crafted with care and imported for superior quality. Compact Dimensions: Measures 4.9" W x 4.9" D x 4.9" H, perfect for various spaces. Lightweight Design: Weighs only .99 lbs., making it easy to move and place. Pillar Candle Holder: Holds one 3" x 3" pillar candle (sold separately) for a beautiful display. Ribbed Texture: Features a popular ribbed texture that refracts candlelight beautifully. Versatile Use: Suitable for both indoor and outdoor settings to enhance ambiance.`,
+    thumbnails: ['./src/imgs/products/14/1.webp', './src/imgs/products/14/2.webp', './src/imgs/products/14/3.webp'],
+    rating: 2.8,
+    reviews: [
+      {
+        name: 'Sarah Thompson',
+        date: 'August 05, 2025',
+        rating: 2.5,
+        review: 'The design is nice, but the glass feels a bit thin. I was expecting something sturdier for the price.',
+      },
+      {
+        name: 'John Peterson',
+        date: 'August 09, 2025',
+        rating: 3.0,
+        review:
+          'Looks good on the table, but the color is slightly different from the photos. Still works for my décor.',
+      },
+      {
+        name: 'Maria Lopez',
+        date: 'August 14, 2025',
+        rating: 2.7,
+        review: 'Smaller than I expected. The quality is average, not bad but not premium either.',
+      },
+      {
+        name: 'David Clarke',
+        date: 'August 18, 2025',
+        rating: 2.9,
+        review:
+          'It works as a candleholder, but the ribbed glass has some imperfections. Could have been better finished.',
+      },
+      {
+        name: 'Emily Rogers',
+        date: 'August 21, 2025',
+        rating: 2.5,
+        review: 'Arrived safely, but honestly I don’t think it’s worth the price. The glass is quite fragile.',
+      },
+    ],
+
+    tags: ['home decor', 'candleholder', 'glass', 'hurricane lamp', 'striped', 'amber'],
+
+    metaItems: {
+      Material: 'Glass',
+      Color: 'Amber',
+      Dimensions: '4.90 x 4.90 x 4.90 in',
+      Pattern: 'Striped',
+      'Candle holder type': 'Hurricane Lamp',
+      Condition: 'New',
+    },
+
+    specItems: {
+      Brand: 'Better Homes & Gardens',
+      Size: 'M',
+      'Assembled Product Weight': '0.99 lb',
+      'Manufacturer Part Number': 'BH6428079493007',
+      Color: 'Amber',
+      'Assembled Product Dimensions (L x W x H)': '4.90 x 4.90 x 4.90 in',
     },
 
     newArrival: false,
