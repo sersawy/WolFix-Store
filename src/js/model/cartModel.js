@@ -33,9 +33,13 @@ export function updateQty(productId, qty) {
 export function total() {
   return get()?.reduce((sum, p) => sum + ((p.product.price * (100 - p.product.sale)) / 100) * p.qty, 0);
 }
+export function getTotalQuantity() {
+  return get()?.reduce((sum, p) => sum + p.qty, 0);
+}
 function key(userId) {
   return `cart_${userId}`;
 }
+
 // export function get(userId) {
 //   return getStorage(key(userId), []);
 // }

@@ -8,13 +8,13 @@ export function init() {
   const currentUser = userModel.getCurrentUser();
   if (currentUser && cartModel.get()) userModel.addCartToCurrentUser(cartModel.get());
   else if (currentUser && currentUser.cart) cartModel.set(currentUser.cart);
-  cartView.setCartCount(cartModel.get()?.length);
+  cartView.setCartCount(cartModel.getTotalQuantity());
 }
 export function addToCart(product, qty = 1) {
   cartModel.add(product, qty);
   const currentUser = userModel.getCurrentUser();
   if (currentUser) userModel.addCartToCurrentUser(cartModel.get());
-  cartView.setCartCount(cartModel.get().length);
+  cartView.setCartCount(cartModel.getTotalQuantity());
   sendNotification(`Added ${product.name.length > 60 ? product.name.slice(0, 60) + '...' : product.name} to cart.`);
 }
 
