@@ -29,7 +29,8 @@ function handelChangeQuantity(e) {
   }
 }
 function changeQuantity(id, value) {
-  cartModel.updateQty(id, +value);
+  if (value <= 0) cartModel.remove(id);
+  else cartModel.updateQty(id, +value);
   const currentUser = userModel.getCurrentUser();
   if (currentUser) userModel.addCartToCurrentUser(cartModel.get());
   cartView.render(cartModel.get(), cartModel.total());

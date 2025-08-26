@@ -83,3 +83,12 @@ export async function handelShowLoading(time = 0.5) {
     loadingOverlay.classList.remove('active');
   }
 }
+
+export function getDate(orderDate) {
+  const date = new Date(orderDate);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}

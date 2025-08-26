@@ -1,5 +1,5 @@
+import { getDate } from './../utils/helpers.js';
 function generateTemplate(order, index) {
-  const date = new Date(order.createdAt);
   const templateItems = generateTemplateItems(order.items);
   return `<div class="order-card">
             <div class="order-card-header">
@@ -9,12 +9,12 @@ function generateTemplate(order, index) {
             <div class="order-card-body">
               <div class="order-date">
                 <i class="bi bi-calendar"></i>
-                Placed on ${date}
+                Placed on ${getDate(order.createdAt)}
               </div>
               ${templateItems}
               <div class="order-total">
                 <span>Total</span>
-                <span>$${order.total}</span>
+                <span>$${order.total.toFixed(2)}</span>
               </div>
 
               <div class="order-actions">
@@ -28,11 +28,15 @@ function generateTemplateItems(items) {
   return items
     .map(
       (i) => `<div class="order-item">
-                  <div>
+      <img src="${i.product.image}" alt="${i.product.name}" class="item-image" />
+      <div>
                     <span class="order-item-name">${i.product.name}</span>
                     <span class="order-item-quantity">× ${i.qty}</span>
                   </div>
-                  <span class="order-item-price">$${(i.product.price * i.qty).toFixed(2)}</span>
+                  <span class="order-item-price">$${(
+                    ((i.product.price * (100 - i.product.sale)) / 100) *
+                    i.qty
+                  ).toFixed(2)}</span>
                 </div>`
     )
     .join('');
@@ -78,12 +82,7 @@ function generateTemplateItemsConfirmation(items) {
 }
 
 export function renderOrderConfirmation(order) {
-  const date = new Date(order.createdAt);
-  document.querySelector('.order-date').textContent = date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  document.querySelector('.order-date').textContent = getDate(order.createdAt);
   document.querySelector('.order-status').textContent = order.status;
   document.querySelectorAll('.order-total').forEach((e) => (e.textContent = `$${order.total.toFixed(2)}`));
   document.querySelectorAll('.order-items-count').forEach((e) => (e.textContent = order.items.length));
