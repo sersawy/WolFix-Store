@@ -3,6 +3,7 @@ import * as productController from './controller/productController.js';
 import * as cartController from './controller/cartController.js';
 import * as contactController from './controller/contactController.js';
 import * as orderController from './controller/orderController.js';
+import * as checkoutController from './controller/checkoutController.js';
 import { handelScrollUp } from './utils/helpers.js';
 document.getElementById('year').textContent = new Date().getFullYear();
 handelScrollUp();
@@ -23,6 +24,10 @@ if (location.pathname.includes('cart.html')) {
 }
 if (location.pathname.includes('orders.html')) {
   if (checkLogin) orderController.init();
+  else location.href = 'login.html';
+}
+if (location.pathname.includes('checkout.html')) {
+  if (checkLogin) checkoutController.init();
   else location.href = 'login.html';
 }
 if (location.pathname.includes('order-confirmation.html')) {

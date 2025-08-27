@@ -54,7 +54,7 @@ async function handelCheckout() {
   await handelShowLoading();
   cartModel.removeCurrentCart();
   userModel.removeCurrentCart();
-  location.href = './order-confirmation.html';
+  location.href = './checkout.html';
 }
 
 export function handelPage() {
