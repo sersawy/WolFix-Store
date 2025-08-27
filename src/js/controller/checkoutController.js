@@ -1,9 +1,12 @@
 import * as cartModel from '../model/cartModel.js';
+import * as userModel from '../model/userModel.js';
 
 import * as checkoutView from '../view/checkoutView.js';
 
 export function init() {
   const cart = cartModel.get();
+  console.log(cart);
+
   if (cart.length === 0) location.href = 'index.html';
   checkoutView.render(cart, cartModel.total());
   addListener();
@@ -45,6 +48,8 @@ function addListener() {
       this.disabled = true;
 
       setTimeout(() => {
+        cartModel.removeCurrentCart();
+        userModel.removeCurrentCart();
         window.location.href = 'order-confirmation.html';
       }, 2000);
     }

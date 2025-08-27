@@ -52,8 +52,7 @@ async function handelCheckout() {
   userModel.addOrderToCurrentUser(order, cartModel.total());
   sendNotification('Order placed successfully!', 'success');
   await handelShowLoading();
-  cartModel.removeCurrentCart();
-  userModel.removeCurrentCart();
+
   location.href = './checkout.html';
 }
 

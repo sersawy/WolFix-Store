@@ -3269,6 +3269,9 @@ textarea.form-control {
   margin-right: auto;
   line-height: 1.6;
 }
+.spin {
+  animation: spin 1s linear infinite;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
