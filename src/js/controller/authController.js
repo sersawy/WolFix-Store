@@ -108,7 +108,7 @@ export function login() {
       location.href = 'index.html';
     } catch (err) {
       authView.resetError();
-      if (!err.isOperational) return console.error(err.message);
+      if (!err.isOperational) return console.error(message);
       authView.renderError(err);
     }
   });

@@ -22,54 +22,13 @@
     <script defer type="module" src="./src/js/script.js"></script>
   </head>
   <body>
-    <!-- <header id="header">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
-        <div class="container">
-          <a class="navbar-brand" href="index.html">
-            <img src="./src/imgs/logo.png" alt="WolFix Store" width="200" />
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="orders.html">Orders</a></li>
-            </ul>
-            <form class="d-flex me-3" role="search" onsubmit="return false">
-              <input
-                id="searchInput"
-                class="form-control"
-                type="search"
-                placeholder="Search products"
-                aria-label="Search"
-              />
-            </form>
-            <a href="cart.html" class="btn btn-outline-primary me-2 position-relative">
-              Cart
-              <span
-                id="cartCountBadge"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
-                >0</span
-              >
-            </a>
-            <div id="authArea" class="d-flex align-items-center gap-2">
-              <a class="btn btn-outline-secondary" href="login.html">Login</a>
-              <a class="btn btn-primary" href="register.html">Sign Up</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header> -->
     <header id="header" class="header-modern">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <!-- Logo -->
           <a class="navbar-brand" href="index.html">
             <img src="./src/imgs/logo.png" alt="WolFix Store" width="200" />
           </a>
 
-          <!-- Mobile Toggle -->
           <button
             class="navbar-toggler custom-toggler text-center"
             type="button"
@@ -79,19 +38,12 @@
             <i class="bi bi-list"></i>
           </button>
 
-          <!-- Navigation -->
           <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" href="index.html">
                   <i class="bi bi-house-door"></i>
                   Home
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="orders.html">
-                  <i class="bi bi-box-seam"></i>
-                  Orders
                 </a>
               </li>
               <li class="nav-item dropdown">
@@ -106,9 +58,13 @@
                   <li><a class="dropdown-item" href="index.html?category=Accessories">Accessories</a></li>
                 </ul>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">
+                  <i class="bi bi-envelope"></i>
+                  Contact
+                </a>
+              </li>
             </ul>
-
-            <!-- Search Bar -->
 
             <form class="search-container me-3" role="search" onsubmit="return false">
               <div class="search-input-group">
@@ -124,12 +80,7 @@
               <div id="searchSuggestions" class="search-suggestions"></div>
             </form>
 
-            <!-- User Actions -->
             <div class="user-actions d-flex align-items-center gap-2">
-              <!-- <button class="action-btn wishlist-btn" title="Wishlist">
-                <i class="bi bi-heart"></i>
-                <span class="badge">0</span>
-              </button> -->
               <a href="cart.html" class="action-btn cart-btn" title="Shopping Cart">
                 <i class="bi bi-bag"></i>
                 <span id="cartCountBadge" class="badge">0</span>
@@ -221,54 +172,15 @@
                 </div>
               </div>
 
-              <!-- Categories -->
               <div class="filter-section">
                 <h4>Categories</h4>
                 <div class="filter-search">
                   <input type="text" placeholder="Search categories..." class="filter-search-input" />
                   <i class="bi bi-search"></i>
                 </div>
-                <div class="filter-options categories-filter">
-                  <label class="filter-option">
-                    <input type="checkbox" value="Accessories" name="category" />
-                    <span class="checkmark"></span>
-                    <span class="option-text">Accessories</span>
-                    <span class="option-count">(2)</span>
-                  </label>
-                  <label class="filter-option">
-                    <input type="checkbox" value="Audio" name="category" />
-                    <span class="checkmark"></span>
-                    <span class="option-text">Audio</span>
-                    <span class="option-count">(1)</span>
-                  </label>
-                  <label class="filter-option">
-                    <input type="checkbox" value="Cameras" name="category" />
-                    <span class="checkmark"></span>
-                    <span class="option-text">Cameras</span>
-                    <span class="option-count">(1)</span>
-                  </label>
-                  <label class="filter-option">
-                    <input type="checkbox" value="Computers" name="category" />
-                    <span class="checkmark"></span>
-                    <span class="option-text">Computers</span>
-                    <span class="option-count">(1)</span>
-                  </label>
-                  <label class="filter-option">
-                    <input type="checkbox" value="Monitors" name="category" />
-                    <span class="checkmark"></span>
-                    <span class="option-text">Monitors</span>
-                    <span class="option-count">(1)</span>
-                  </label>
-                  <label class="filter-option">
-                    <input type="checkbox" value="Phones" name="category" />
-                    <span class="checkmark"></span>
-                    <span class="option-text">Phones</span>
-                    <span class="option-count">(1)</span>
-                  </label>
-                </div>
+                <div class="filter-options categories-filter"></div>
               </div>
 
-              <!-- Brands -->
               <div class="filter-section">
                 <h4>Brands</h4>
                 <div class="filter-search">
@@ -278,7 +190,6 @@
                 <div class="filter-options brands-filter"></div>
               </div>
 
-              <!-- Availability -->
               <div class="filter-section">
                 <h4>Availability</h4>
                 <div class="rating-options">
@@ -299,7 +210,6 @@
             </form>
           </div>
         </aside>
-        <!-- <div class="col-lg-1"></div> -->
         <section class="col-lg-8 products-section mx-lg-4">
           <div class="products-header">
             <div class="products-title">
@@ -338,7 +248,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <!-- mobile filter form will be injected here -->
         <div id="mobileFilterContent"></div>
       </div>
     </div>
@@ -366,7 +275,7 @@
             <h4>Quick Links</h4>
             <ul class="footer-links">
               <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="contact.html">Contact</a></li>
               <li><a href="#">Support</a></li>
               <li><a href="#">FAQ</a></li>
             </ul>

@@ -1,9 +1,15 @@
 const authArea = document.getElementById('authArea');
 
 export function renderUserSection(user) {
-  authArea.innerHTML = `
-      <span class="text-muted small me-1">Hi, ${user.name}</span>
-      <button class="btn btn-outline-danger btn-sm" id="logoutBtn">Logout</button>
+  authArea.innerHTML = `<div class="dropdown"><button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="bi bi-person-circle"></i> ${user.name}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="account.html"><i class="bi bi-gear"></i> Account Settings</a></li>
+              <li><a class="dropdown-item" href="orders.html"><i class="bi bi-clock-history"></i> Order History</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" id='logoutBtn'><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+            </ul></div>
     `;
 }
 export function renderLoginSection() {

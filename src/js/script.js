@@ -8,6 +8,7 @@ import { handelScrollUp } from './utils/helpers.js';
 document.getElementById('year').textContent = new Date().getFullYear();
 handelScrollUp();
 const checkLogin = authController.checkLogin();
+
 if (location.pathname.includes('login.html')) {
   if (!checkLogin) authController.login();
   else location.href = 'index.html';
