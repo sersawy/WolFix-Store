@@ -41,13 +41,11 @@ async function handelClickFilter() {
 
   const productsByPage = paginationController.getProductByPage(productModel.getFilterProducts(), 1);
   productView.render(productsByPage, productModel.getFilterProducts().length);
-  // filterController.init();
 }
 function handelFilterCategory(category) {
   const filter = filterController.getFilterData();
   if (category) {
     filter.category = [category];
-    document.querySelector(`input[value = "${category}"]`).checked = true;
   }
   productModel.setFilter(filter);
   const allProducts = productModel.getAllProducts();

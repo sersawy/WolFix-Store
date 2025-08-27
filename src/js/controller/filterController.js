@@ -36,6 +36,8 @@ export function clearFilter() {
   productModel.setFilter(getFilterData());
 }
 export function filterProducts(products, state) {
+  console.log(state);
+
   const pro = products
     .filter((p) => {
       return (
