@@ -54,7 +54,14 @@ function generateTemplate(product) {
   `;
 }
 export function render(products, total) {
-  productsContainer.innerHTML = '';
+  productsContainer.innerHTML = `<div class="no-products-state">
+        <div class="no-products-icon">
+          <i class="bi bi-search"></i>
+        </div>
+        <h3>No Products Found</h3>
+        <p>Try adjusting your filters or search terms to find what you're looking for.</p>
+      </div>`;
+  if (products.length) productsContainer.innerHTML = '';
   products.forEach((product) => {
     const template = generateTemplate(product);
     productsContainer.insertAdjacentHTML('beforeend', template);

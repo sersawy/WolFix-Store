@@ -3661,3 +3661,33 @@ textarea.form-control {
     flex-direction: column;
   }
 }
+/* No Products State */
+.no-products-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--card-background);
+  border-radius: var(--border-radius-lg);
+  margin: 2rem 0;
+}
+
+.no-products-icon {
+  font-size: 4rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.no-products-state h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.no-products-state p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
