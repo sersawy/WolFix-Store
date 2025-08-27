@@ -3,7 +3,9 @@ import * as cartModel from '../model/cartModel.js';
 import * as checkoutView from '../view/checkoutView.js';
 
 export function init() {
-  checkoutView.render(cartModel.get(), cartModel.total());
+  const cart = cartModel.get();
+  if (cart.length === 0) location.href = 'index.html';
+  checkoutView.render(cart, cartModel.total());
   addListener();
 }
 
