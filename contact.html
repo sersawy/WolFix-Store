@@ -144,9 +144,7 @@
             </div>
             <h3 class="confirmation-message-title">Message Sent Successfully!</h3>
             <p class="confirmation-message-text">Thank you for contacting us. We'll get back to you within 24 hours.</p>
-            <button class="btn-contact" onclick="resetForm()">
-              <i class="bi bi-plus-circle"></i> Send Another Message
-            </button>
+            <button class="btn-contact btn-send-again"><i class="bi bi-plus-circle"></i> Send Another Message</button>
           </div>
         </div>
       </div>
@@ -158,7 +156,7 @@
           </div>
           <div class="contact-details">
             <h3>Call Us</h3>
-            <p><a href="tel:+11234567890">+1 (123) 456-7890</a></p>
+            <p><a href="tel:+201022133123">+20 (102) 213-3123</a></p>
           </div>
         </div>
 
@@ -178,7 +176,7 @@
           </div>
           <div class="contact-details">
             <h3>Visit Us</h3>
-            <p>123 Tech Street, San Francisco, CA 94103</p>
+            <p>123 iti Street, Menofia, 32951</p>
           </div>
         </div>
       </div>
@@ -191,14 +189,35 @@
             <div class="footer-logo">
               <img src="./src/imgs/logo.png" alt="WolFix Store" width="200" />
             </div>
-            <p class="footer-description">Your trusted destination for premium electronics and technology products.</p>
+            <p class="footer-description">WolFix Store – Shopping as it should be, all in one place.</p>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
           </div>
           <div class="footer-section">
             <h4>Quick Links</h4>
             <ul class="footer-links">
               <li><a href="#">About Us</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#">Contact</a></li>
               <li><a href="#">Support</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Categories</h4>
+            <ul class="footer-links">
+              <li><a href="index.html?category=Computers">Computers</a></li>
+              <li><a href="index.html?category=Phones">Phones</a></li>
+              <li><a href="index.html?category=Audio">Audio</a></li>
+              <li><a href="index.html?category=Accessories">Accessories</a></li>
             </ul>
           </div>
           <div class="footer-section">
@@ -207,34 +226,24 @@
               <li><a href="#">Shipping Info</a></li>
               <li><a href="#">Returns</a></li>
               <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© <span id="year">2025</span> WolFix Store. All rights reserved.</p>
+          <p>&copy; <span id="year">2025</span> WolFix Store. All rights reserved.</p>
         </div>
       </div>
     </footer>
+    <button id="btn-back-to-top" class="back-to-top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
 
-    <script>
-      // Set current year in footer
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Contact form submission
-      document.getElementById('contactForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        // Hide form and show confirmation message
-        this.style.display = 'none';
-        document.getElementById('confirmationMessage').style.display = 'block';
-      });
-
-      // Function to reset form
-      function resetForm() {
-        document.getElementById('contactForm').reset();
-        document.getElementById('contactForm').style.display = 'block';
-        document.getElementById('confirmationMessage').style.display = 'none';
-      }
-    </script>
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Sending message...</p>
+      </div>
+    </div>
   </body>
 </html>
