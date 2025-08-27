@@ -33,7 +33,7 @@ function changeQuantity(id, value) {
   else cartModel.updateQty(id, +value);
   const currentUser = userModel.getCurrentUser();
   if (currentUser) userModel.addCartToCurrentUser(cartModel.get());
-  cartView.render(cartModel.get(), cartModel.total());
+  cartView.render(cartModel.get(), cartModel.total(), cartModel.getTotalQuantity());
 }
 function handelRemoveProduct(e) {
   const btn = e.target.closest('.cart-item-remove');
@@ -43,7 +43,7 @@ function handelRemoveProduct(e) {
   cartModel.remove(id);
   const currentUser = userModel.getCurrentUser();
   if (currentUser) userModel.addCartToCurrentUser(cartModel.get());
-  cartView.render(cartModel.get(), cartModel.total());
+  cartView.render(cartModel.get(), cartModel.total(), cartModel.getTotalQuantity());
 }
 async function handelCheckout() {
   const order = cartModel.get();
@@ -58,7 +58,7 @@ async function handelCheckout() {
 
 export function handelPage() {
   init();
-  cartView.render(cartModel.get(), cartModel.total());
+  cartView.render(cartModel.get(), cartModel.total(), cartModel.getTotalQuantity());
   document.getElementById('cartContainer').addEventListener('change', handelChangeQuantity);
   document.getElementById('cartContainer').addEventListener('click', handelChangeQuantity);
   document.getElementById('cartContainer').addEventListener('click', handelRemoveProduct);

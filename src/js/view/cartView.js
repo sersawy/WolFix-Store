@@ -36,8 +36,8 @@ export function generateRow(item) {
     </tr>
   `;
 }
-export function render(items, total) {
-  setCartCount(items?.length);
+export function render(items, total, totalQuantity) {
+  setCartCount(totalQuantity);
 
   let template = `<main class="container my-4">
   <div class="empty-cart-container">
