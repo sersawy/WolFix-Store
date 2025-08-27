@@ -15,7 +15,7 @@ export function renderLoginSection() {
 
 export function renderError(err) {
   const type = err.type;
-  if (type === 'registration') {
+  if (type === 'registration' || type === 'setting') {
     window.scrollTo({ top: 100, behavior: 'smooth' });
 
     const input = document.getElementsByName(`${err.value}`)[0];
@@ -32,4 +32,9 @@ export function renderError(err) {
 export function resetError() {
   document.querySelectorAll('.error-input').forEach((el) => el.classList.remove('error-input'));
   document.querySelectorAll('.error').forEach((el) => (el.textContent = ''));
+}
+
+export function renderAccountSetting(user) {
+  document.querySelector('#fullName').value = user.name;
+  document.querySelector('#email').value = user.email;
 }

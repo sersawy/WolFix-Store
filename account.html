@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register - WolFix Store</title>
+    <title>Account Settings - WolFix Store</title>
     <link rel="icon" type="image/png" href="./src/imgs/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./src/imgs/favicon.svg" />
     <link rel="shortcut icon" href="./src/imgs/favicon.ico" />
@@ -83,91 +83,115 @@
         </div>
       </nav>
     </header>
-    <main class="container my-5">
-      <div class="register-container">
-        <div class="register-header">
-          <h2>Create Account</h2>
-          <p>Join WolFix Store for the best shopping experience</p>
+
+    <main class="container account-container">
+      <div class="account-header">
+        <h1 class="account-title">Account Settings</h1>
+        <p class="account-subtitle">Manage your account information and preferences</p>
+      </div>
+
+      <div class="account-card">
+        <div class="account-section">
+          <h2 class="section-title">
+            <i class="bi bi-person"></i>
+            Personal Information
+          </h2>
+
+          <form id="personalInfoForm">
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="fullName" value="John" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" value="john.doe@example.com" required />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-shopping"><i class="bi bi-check-circle"></i> Save Changes</button>
+              <button type="reset" class="btn-outline"><i class="bi bi-arrow-counterclockwise"></i> Reset</button>
+            </div>
+          </form>
         </div>
 
-        <form id="registerForm" class="register-form">
-          <div class="form-group">
-            <label for="name">Full name</label>
-            <input type="text" class="form-control" id="name" name="name" required />
-            <span class="error" id="nameError"></span>
-          </div>
+        <div class="account-section">
+          <h2 class="section-title">
+            <i class="bi bi-shield-lock"></i>
+            Change Password
+          </h2>
 
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required />
-            <span class="error" id="emailError"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="password">Password</label>
-            <div class="password-toggle">
-              <input type="password" class="form-control" id="password" name="password" minlength="8" required />
-              <button type="button" class="toggle-password" data-target="password">
-                <i class="bi bi-eye"></i>
-              </button>
+          <form id="passwordForm">
+            <div class="form-group">
+              <label for="currentPassword" class="form-label">Current Password</label>
+              <div class="password-toggle">
+                <input type="password" class="form-control" name="currentPassword" id="currentPassword" required />
+                <button type="button" class="toggle-password" data-target="currentPassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <span class="error" id="currentPasswordError"></span>
             </div>
-            <span class="error" id="passwordError"></span>
 
-            <div class="password-requirements">
-              <p class="requirement-title">Password must contain:</p>
-              <ul class="requirement-list">
-                <li id="req-length" class="requirement">
-                  <i class="bi bi-x-circle"></i>
-                  <span>At least 8 characters</span>
-                </li>
-                <li id="req-uppercase" class="requirement">
-                  <i class="bi bi-x-circle"></i>
-                  <span>One uppercase letter</span>
-                </li>
-                <li id="req-lowercase" class="requirement">
-                  <i class="bi bi-x-circle"></i>
-                  <span>One lowercase letter</span>
-                </li>
-                <li id="req-number" class="requirement">
-                  <i class="bi bi-x-circle"></i>
-                  <span>One number</span>
-                </li>
-                <li id="req-special" class="requirement">
-                  <i class="bi bi-x-circle"></i>
-                  <span>One special character</span>
-                </li>
-              </ul>
-              <div class="password-strength">
-                <div class="strength-bar">
-                  <div class="strength-progress"></div>
+            <div class="form-group">
+              <label for="password" class="form-label">New Password</label>
+              <div class="password-toggle">
+                <input type="password" class="form-control" name="password" id="password" required />
+                <button type="button" class="toggle-password" data-target="password">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <span class="error" id="passwordError"></span>
+
+              <div class="password-requirements">
+                <p class="requirement-title">Password must contain:</p>
+                <ul class="requirement-list">
+                  <li id="req-length" class="requirement">
+                    <i class="bi bi-x-circle"></i>
+                    <span>At least 8 characters</span>
+                  </li>
+                  <li id="req-uppercase" class="requirement">
+                    <i class="bi bi-x-circle"></i>
+                    <span>One uppercase letter</span>
+                  </li>
+                  <li id="req-lowercase" class="requirement">
+                    <i class="bi bi-x-circle"></i>
+                    <span>One lowercase letter</span>
+                  </li>
+                  <li id="req-number" class="requirement">
+                    <i class="bi bi-x-circle"></i>
+                    <span>One number</span>
+                  </li>
+                  <li id="req-special" class="requirement">
+                    <i class="bi bi-x-circle"></i>
+                    <span>One special character</span>
+                  </li>
+                </ul>
+                <div class="password-strength">
+                  <div class="strength-bar">
+                    <div class="strength-progress"></div>
+                  </div>
+                  <span class="strength-text">Password strength: <span id="strength-value">None</span></span>
                 </div>
-                <span class="strength-text">Password strength: <span id="strength-value">None</span></span>
               </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="confirmPassword">Confirm Password</label>
-            <div class="password-toggle">
-              <input
-                type="password"
-                class="form-control"
-                id="confirmPassword"
-                name="confirmPassword"
-                minlength="4"
-                required
-              />
-              <button type="button" class="toggle-password" data-target="confirmPassword">
-                <i class="bi bi-eye"></i>
-              </button>
+            <div class="form-group">
+              <label for="confirmPassword" class="form-label">Confirm New Password</label>
+              <div class="password-toggle">
+                <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" required />
+                <button type="button" class="toggle-password" data-target="confirmPassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <span class="error" id="confirmPasswordError"></span>
             </div>
-            <span class="error" id="confirmPasswordError"></span>
-          </div>
 
-          <button type="submit" class="btn btn-primary">Register</button>
-
-          <div class="register-footer">Already have an account? <a href="login.html">Login</a></div>
-        </form>
+            <div class="form-actions">
+              <button type="submit" class="btn-shopping"><i class="bi bi-key"></i> Update Password</button>
+            </div>
+          </form>
+        </div>
       </div>
     </main>
 
@@ -227,10 +251,11 @@
     <button id="btn-back-to-top" class="back-to-top">
       <i class="bi bi-arrow-up"></i>
     </button>
+
     <div id="loadingOverlay" class="loading-overlay">
       <div class="loading-spinner">
         <div class="spinner"></div>
-        <p>Creating account...</p>
+        <p>Please wait...</p>
       </div>
     </div>
   </body>

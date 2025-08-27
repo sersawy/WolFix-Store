@@ -29,6 +29,10 @@ if (location.pathname.includes('order-confirmation.html')) {
   if (checkLogin) orderController.initOrderConfirmation();
   else location.href = 'login.html';
 }
+if (location.pathname.includes('account.html')) {
+  if (checkLogin) authController.accountSetting();
+  else location.href = 'login.html';
+}
 if (location.pathname.includes('/product.html')) {
   productController.initProductDetails();
 }

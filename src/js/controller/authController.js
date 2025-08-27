@@ -1,7 +1,7 @@
 import * as userModel from '../model/userModel.js';
 import * as cartModel from '../model/cartModel.js';
 import * as authView from '../view/authView.js';
-import { handelShowLoading } from '../utils/helpers.js';
+import { handelShowLoading, sendNotification, togglePassword } from '../utils/helpers.js';
 
 function handelLogoutListener() {
   const btn = document.getElementById('logoutBtn');
@@ -56,7 +56,7 @@ function updateRequirement(elementId, isValid) {
   const icon = element.querySelector('i');
 
   if (isValid) {
-    icon.className = 'bi bi-check-circle-fill text-success';
+    icon.classemail = 'bi bi-check-circle-fill text-success';
     element.classList.add('requirement-met');
   } else {
     icon.className = 'bi bi-x-circle';
@@ -137,6 +137,7 @@ export function checkLogin() {
 }
 
 export function registration() {
+  togglePassword();
   const form = document.getElementById('registerForm');
   document.getElementById('password').addEventListener('keyup', validatePassword);
   document.getElementById('confirmPassword').addEventListener('keyup', validateConfirmPassword);
@@ -146,11 +147,41 @@ export function registration() {
     const data = Object.fromEntries(new FormData(form).entries());
     try {
       userModel.createUser(data);
-      alert('Registered! Please login.');
       location.href = 'login.html';
     } catch (err) {
       authView.resetError();
       if (!err.isOperational) return console.error(err.message);
+      authView.renderError(err);
+    }
+  });
+}
+
+export function accountSetting() {
+  authView.renderAccountSetting(userModel.getCurrentUser());
+  togglePassword();
+  document.getElementById('personalInfoForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    await handelShowLoading();
+    const name = document.querySelector('#fullName').value;
+    const email = document.querySelector('#email').value;
+    sendNotification('Your personal information has been updated successfully.', 'success');
+    userModel.updateUserData(name, email);
+  });
+  document.getElementById('password').addEventListener('keyup', validatePassword);
+  document.getElementById('confirmPassword').addEventListener('keyup', validateConfirmPassword);
+  document.getElementById('passwordForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    await handelShowLoading();
+
+    const oldPassword = document.getElementById('currentPassword').value;
+    const newPassword = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    try {
+      userModel.updateUserPassword(oldPassword, newPassword, confirmPassword);
+      sendNotification('Your password has been updated successfully.', 'success');
+    } catch (err) {
+      authView.resetError();
+      if (!err.isOperational) return console.error(err);
       authView.renderError(err);
     }
   });
