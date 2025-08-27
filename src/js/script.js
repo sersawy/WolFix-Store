@@ -4,8 +4,11 @@ import * as cartController from './controller/cartController.js';
 import * as contactController from './controller/contactController.js';
 import * as orderController from './controller/orderController.js';
 import * as checkoutController from './controller/checkoutController.js';
+import * as cartModel from './model/cartModel.js';
+import * as cartView from './view/cartView.js';
 import { handelScrollUp } from './utils/helpers.js';
 document.getElementById('year').textContent = new Date().getFullYear();
+cartView.setCartCount(cartModel.getTotalQuantity());
 handelScrollUp();
 const checkLogin = authController.checkLogin();
 

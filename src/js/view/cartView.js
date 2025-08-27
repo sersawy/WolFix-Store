@@ -1,5 +1,4 @@
 const cartContainer = document.getElementById('cartContainer');
-const loadingOverlay = document.getElementById('loadingOverlay');
 
 export function setCartCount(number) {
   document.querySelector('#cartCountBadge').textContent = number;
