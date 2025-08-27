@@ -61,7 +61,7 @@ export const products = [
       'Watch Band Style': 'S/M fits 130-180mm wrists',
       'Assembled Product Dimensions (L x W x H)': '1.00 x 1.00 x 1.00 in',
     },
-    newArrival: false,
+    newArrival: true,
   },
   {
     id: 2,
@@ -139,7 +139,7 @@ export const products = [
       'Assembled Product Dimensions (L x W x H)': '14.00 x 10.00 x 0.70 in',
     },
 
-    newArrival: false,
+    newArrival: true,
   },
   {
     id: 3,
@@ -673,7 +673,7 @@ export const products = [
       'Manufacturer Part Number': 'BH4536185817853',
     },
 
-    newArrival: false,
+    newArrival: true,
   },
   {
     id: 12,
@@ -1242,7 +1242,7 @@ export const products = [
       'Manufacturer Part Number': 'BH4510180672202',
     },
 
-    newArrival: false,
+    newArrival: true,
   },
   {
     id: 20,
@@ -1972,6 +1972,6 @@ export const products = [
       Color: 'Light Tree Camo',
     },
 
-    newArrival: false,
+    newArrival: true,
   },
 ];
