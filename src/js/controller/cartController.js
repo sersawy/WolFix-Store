@@ -45,7 +45,8 @@ function handelRemoveProduct(e) {
   if (currentUser) userModel.addCartToCurrentUser(cartModel.get());
   cartView.render(cartModel.get(), cartModel.total(), cartModel.getTotalQuantity());
 }
-async function handelCheckout() {
+async function handelCheckout(e) {
+  if (!e.target.closest('.btn-checkout')) return;
   const order = cartModel.get();
   const currentUser = userModel.getCurrentUser();
   if (!currentUser) location.href = './login.html';
@@ -62,5 +63,5 @@ export function handelPage() {
   document.getElementById('cartContainer').addEventListener('change', handelChangeQuantity);
   document.getElementById('cartContainer').addEventListener('click', handelChangeQuantity);
   document.getElementById('cartContainer').addEventListener('click', handelRemoveProduct);
-  document.getElementById('checkoutBtn')?.addEventListener('click', handelCheckout);
+  document.getElementById('cartContainer')?.addEventListener('click', handelCheckout);
 }
