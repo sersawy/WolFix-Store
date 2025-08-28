@@ -33,7 +33,6 @@ export function renderError(err) {
     const errorSpan = document.querySelector(`#${err.value}`);
     errorSpan.textContent = err.message;
   }
-  // console.error(err.message);
 }
 export function resetError() {
   document.querySelectorAll('.error-input').forEach((el) => el.classList.remove('error-input'));
