@@ -2,6 +2,8 @@
 
 A modern, responsive **e-commerce website** for electronics and technology products. Built with **HTML, CSS, and Vanilla JavaScript (MVC pattern)**, it provides a clean, user-friendly interface with full shopping functionality.
 
+🌐 **Live Demo:** [WolFix Store](https://wolfixstore.demo.sersawy.com/)
+
 ---
 
 ## 🚀 Features
@@ -46,10 +48,10 @@ A modern, responsive **e-commerce website** for electronics and technology produ
 ```bash
 src/
 ├── css/
-│   └── style.css          # Main stylesheet
-├── imgs/                  # Images (logo + product images)
+│   └── style.css           # Main stylesheet
+├── imgs/                   # Images (logo + product images)
 ├── js/
-│   ├── controller/        # Handles business logic
+│   ├── controller/         # Handles business logic
 │   │   ├── authController.js
 │   │   ├── cartController.js
 │   │   ├── checkoutController.js
@@ -59,19 +61,19 @@ src/
 │   │   ├── paginationController.js
 │   │   └── productController.js
 │   │
-│   ├── database/          # Dummy product database
+│   ├── database/           # Dummy product database
 │   │   └── products.js
 │   │
-│   ├── model/             # Data layer
+│   ├── model/              # Data layer
 │   │   ├── cartModel.js
 │   │   ├── productModel.js
 │   │   └── userModel.js
 │   │
-│   ├── utils/             # Reusable helpers
+│   ├── utils/              # Reusable helpers
 │   │   ├── appError.js
 │   │   └── helpers.js
 │   │
-│   ├── view/              # Handles UI rendering
+│   ├── view/               # Handles UI rendering
 │   │   ├── authView.js
 │   │   ├── cartView.js
 │   │   ├── checkoutView.js
@@ -81,21 +83,21 @@ src/
 │   │   ├── paginationView.js
 │   │   └── productView.js
 │   │
-│   ├── config.js          # Global configuration
-│   └── script.js          # Entry point
+│   ├── config.js           # Global configuration
+│   └── script.js           # Entry point
 │
-├── index.html             # Home page
-├── product.html           # Product detail page
-├── cart.html              # Shopping cart page
-├── checkout.html          # Checkout page
-├── order-confirmation.html# Order success page
-├── orders.html            # Orders history
-├── login.html             # User login
-├── register.html          # User registration
-├── account.html           # Profile management
-├── contact.html           # Contact form
-├── 404.html               # Error page
-└── site.webmanifest       # PWA manifest
+├── index.html              # Home page
+├── product.html            # Product detail page
+├── cart.html               # Shopping cart page
+├── checkout.html           # Checkout page
+├── order-confirmation.html # Order success page
+├── orders.html             # Orders history
+├── login.html              # User login
+├── register.html           # User registration
+├── account.html            # Profile management
+├── contact.html            # Contact form
+├── 404.html                # Error page
+└── site.webmanifest        # PWA manifest
 ```
 
 ---
