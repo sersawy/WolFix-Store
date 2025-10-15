@@ -7,6 +7,12 @@ import * as checkoutController from './controller/checkoutController.js';
 import * as cartModel from './model/cartModel.js';
 import * as cartView from './view/cartView.js';
 import { handelScrollUp } from './utils/helpers.js';
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./../../sw.js').then(() => console.log('serviceWorker is registerd'));
+} else {
+  console.log('serviceWorker not supported');
+}
 document.getElementById('year').textContent = new Date().getFullYear();
 cartView.setCartCount(cartModel.getTotalQuantity());
 handelScrollUp();
